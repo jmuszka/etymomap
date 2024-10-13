@@ -5,13 +5,15 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node start.mjs"
+    "start": "node --no-deprecation start.mjs",
+    "debug": "node start.mjs"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "dotenv": "^16.4.5",
     "openai": "^4.67.3",
     "ts-node": "^10.9.2",
     "whatwg-url": "^14.0.0"
