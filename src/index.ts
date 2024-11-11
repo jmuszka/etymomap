@@ -8,18 +8,24 @@ dotenv.config();
 const client = new EtymologyBot(process.env['OPENAI_API_KEY']);
 const d = new Dictionary(process.env['MERRIAM_WEBSTER_API_KEY']); // this object allows us to query words
 
-// Enter the word
 let word: string = readline.question();
-let response = await client.callOpenAI(word);
-console.log(response);
 
-// Print info
-try {
-  let m = await d.search(word);
-  console.log();
-  console.log(`WORD: ${m[0].toString()}`);
-  console.log(`FIRST USE: ${m[0].getFirstUse()}`);
-  console.log(`ETYMOLOGY: ${m[0].getEtymology()}`);
-} catch (e) {
-  console.log("Word not found.");
+while(word!="") {
+
+  // Print info
+  try {
+    let m = await d.search(word);
+    let gptList = await client.processEtymologyIntoList(m[0].getEtymology());
+
+    console.log()
+    console.log(m[0].toString())
+    console.log(m[0].getFirstUse().replace(/circa|{.*}/, ""))
+    console.log(gptList.split(/,/))
+
+    console.log(m[0].getDefinitions())
+  } catch (e) {
+    console.log(e);
+  }
+
+  word = readline.question();
 }

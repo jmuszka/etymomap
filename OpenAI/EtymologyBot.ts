@@ -9,7 +9,7 @@ export class EtymologyBot {
         this.client = new OpenAI({apiKey: key,});
     }
 
-    public async callOpenAI(word: string): Promise<String> {
+    public async processEtymologyIntoList(input: string): Promise<String> {
         const chatCompletion = await this.client.chat.completions.create({
           messages: 
           [
@@ -19,8 +19,7 @@ export class EtymologyBot {
                 {
                   type: 'text',
                   text: `You are a helpful assistant for an app that provides users with information about the etymology of the 
-                        English language. Simply give the language where the word comes from, nothing else. Respond with either:
-                        French, Old French, Old English, Old Norse, Italian, Latin, Hindu, Greek.`
+                        English language.`
                 }
               ]
             },
@@ -29,7 +28,10 @@ export class EtymologyBot {
               content: [
                 {
                   type: 'text',
-                  text: 'Fill in the blank: the word "' + word + '" comes from the _ language.'
+                  text: `I am going to provide you a sentence that contains the names of multiple different languages.
+                          I need you to provide me the names of the languages in a comma separated list, like "English,Old French,Latin,Greek".
+
+                          ` + input
                 }
               ]
             }

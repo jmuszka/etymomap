@@ -31,8 +31,10 @@ export class Dictionary {
         for (var result of results) {
             if (typeof result !== "object") throw new DictionaryError(`Word "${word}" not found in dictionary.`);
             let w = new Word(result)
-            if (w.toString() === word)
+
+            if (w.toString() === word) {
                 words.push(new Word(result));
+            }
         }
 
         return words;
