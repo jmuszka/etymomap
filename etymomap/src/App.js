@@ -3,9 +3,9 @@ import GlobeBackground from './GlobeBackground.js'
 
 
 function App() {
-  return (
-    <GlobeBackground />
-  );
+  let g = <GlobeBackground />
+  
+  return g;
 }
 
 export default App;
