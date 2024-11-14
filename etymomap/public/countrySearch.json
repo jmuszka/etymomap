@@ -1,0 +1,970 @@
+[
+    {
+        "key": "andorra",
+        "value": "Andorra"
+    },
+    {
+        "key": "united arab emirates",
+        "value": "United Arab Emirates"
+    },
+    {
+        "key": "afghanistan",
+        "value": "Afghanistan"
+    },
+    {
+        "key": "antigua and barbuda",
+        "value": "Antigua and Barbuda"
+    },
+    {
+        "key": "anguilla",
+        "value": "Anguilla"
+    },
+    {
+        "key": "albania",
+        "value": "Albania"
+    },
+    {
+        "key": "armenia",
+        "value": "Armenia"
+    },
+    {
+        "key": "netherlands antilles",
+        "value": "Netherlands Antilles"
+    },
+    {
+        "key": "angola",
+        "value": "Angola"
+    },
+    {
+        "key": "antarctica",
+        "value": "Antarctica"
+    },
+    {
+        "key": "argentina",
+        "value": "Argentina"
+    },
+    {
+        "key": "american samoa",
+        "value": "American Samoa"
+    },
+    {
+        "key": "austria",
+        "value": "Austria"
+    },
+    {
+        "key": "australia",
+        "value": "Australia"
+    },
+    {
+        "key": "aruba",
+        "value": "Aruba"
+    },
+    {
+        "key": "azerbaijan",
+        "value": "Azerbaijan"
+    },
+    {
+        "key": "bosnia and herzegovina",
+        "value": "Bosnia and Herzegovina"
+    },
+    {
+        "key": "barbados",
+        "value": "Barbados"
+    },
+    {
+        "key": "bangladesh",
+        "value": "Bangladesh"
+    },
+    {
+        "key": "belgium",
+        "value": "Belgium"
+    },
+    {
+        "key": "burkina faso",
+        "value": "Burkina Faso"
+    },
+    {
+        "key": "bulgaria",
+        "value": "Bulgaria"
+    },
+    {
+        "key": "bahrain",
+        "value": "Bahrain"
+    },
+    {
+        "key": "burundi",
+        "value": "Burundi"
+    },
+    {
+        "key": "benin",
+        "value": "Benin"
+    },
+    {
+        "key": "bermuda",
+        "value": "Bermuda"
+    },
+    {
+        "key": "brunei",
+        "value": "Brunei"
+    },
+    {
+        "key": "bolivia",
+        "value": "Bolivia"
+    },
+    {
+        "key": "brazil",
+        "value": "Brazil"
+    },
+    {
+        "key": "bahamas",
+        "value": "Bahamas"
+    },
+    {
+        "key": "bhutan",
+        "value": "Bhutan"
+    },
+    {
+        "key": "bouvet island",
+        "value": "Bouvet Island"
+    },
+    {
+        "key": "botswana",
+        "value": "Botswana"
+    },
+    {
+        "key": "belarus",
+        "value": "Belarus"
+    },
+    {
+        "key": "belize",
+        "value": "Belize"
+    },
+    {
+        "key": "canada",
+        "value": "Canada"
+    },
+    {
+        "key": "cocos [keeling] islands",
+        "value": "Cocos [Keeling] Islands"
+    },
+    {
+        "key": "congo [drc]",
+        "value": "Congo [DRC]"
+    },
+    {
+        "key": "central african republic",
+        "value": "Central African Republic"
+    },
+    {
+        "key": "congo [republic]",
+        "value": "Congo [Republic]"
+    },
+    {
+        "key": "switzerland",
+        "value": "Switzerland"
+    },
+    {
+        "key": "côte d'ivoire",
+        "value": "Côte d'Ivoire"
+    },
+    {
+        "key": "cook islands",
+        "value": "Cook Islands"
+    },
+    {
+        "key": "chile",
+        "value": "Chile"
+    },
+    {
+        "key": "cameroon",
+        "value": "Cameroon"
+    },
+    {
+        "key": "china",
+        "value": "China"
+    },
+    {
+        "key": "colombia",
+        "value": "Colombia"
+    },
+    {
+        "key": "costa rica",
+        "value": "Costa Rica"
+    },
+    {
+        "key": "cuba",
+        "value": "Cuba"
+    },
+    {
+        "key": "cape verde",
+        "value": "Cape Verde"
+    },
+    {
+        "key": "christmas island",
+        "value": "Christmas Island"
+    },
+    {
+        "key": "cyprus",
+        "value": "Cyprus"
+    },
+    {
+        "key": "czech republic",
+        "value": "Czech Republic"
+    },
+    {
+        "key": "germany",
+        "value": "Germany"
+    },
+    {
+        "key": "djibouti",
+        "value": "Djibouti"
+    },
+    {
+        "key": "denmark",
+        "value": "Denmark"
+    },
+    {
+        "key": "dominica",
+        "value": "Dominica"
+    },
+    {
+        "key": "dominican republic",
+        "value": "Dominican Republic"
+    },
+    {
+        "key": "algeria",
+        "value": "Algeria"
+    },
+    {
+        "key": "ecuador",
+        "value": "Ecuador"
+    },
+    {
+        "key": "estonia",
+        "value": "Estonia"
+    },
+    {
+        "key": "egypt",
+        "value": "Egypt"
+    },
+    {
+        "key": "western sahara",
+        "value": "Western Sahara"
+    },
+    {
+        "key": "eritrea",
+        "value": "Eritrea"
+    },
+    {
+        "key": "spain",
+        "value": "Spain"
+    },
+    {
+        "key": "ethiopia",
+        "value": "Ethiopia"
+    },
+    {
+        "key": "finland",
+        "value": "Finland"
+    },
+    {
+        "key": "fiji",
+        "value": "Fiji"
+    },
+    {
+        "key": "falkland islands [islas malvinas]",
+        "value": "Falkland Islands [Islas Malvinas]"
+    },
+    {
+        "key": "micronesia",
+        "value": "Micronesia"
+    },
+    {
+        "key": "faroe islands",
+        "value": "Faroe Islands"
+    },
+    {
+        "key": "france",
+        "value": "France"
+    },
+    {
+        "key": "gabon",
+        "value": "Gabon"
+    },
+    {
+        "key": "united kingdom",
+        "value": "United Kingdom"
+    },
+    {
+        "key": "grenada",
+        "value": "Grenada"
+    },
+    {
+        "key": "georgia",
+        "value": "Georgia"
+    },
+    {
+        "key": "french guiana",
+        "value": "French Guiana"
+    },
+    {
+        "key": "guernsey",
+        "value": "Guernsey"
+    },
+    {
+        "key": "ghana",
+        "value": "Ghana"
+    },
+    {
+        "key": "gibraltar",
+        "value": "Gibraltar"
+    },
+    {
+        "key": "greenland",
+        "value": "Greenland"
+    },
+    {
+        "key": "gambia",
+        "value": "Gambia"
+    },
+    {
+        "key": "guinea",
+        "value": "Guinea"
+    },
+    {
+        "key": "guadeloupe",
+        "value": "Guadeloupe"
+    },
+    {
+        "key": "equatorial guinea",
+        "value": "Equatorial Guinea"
+    },
+    {
+        "key": "greece",
+        "value": "Greece"
+    },
+    {
+        "key": "south georgia and the south sandwich islands",
+        "value": "South Georgia and the South Sandwich Islands"
+    },
+    {
+        "key": "guatemala",
+        "value": "Guatemala"
+    },
+    {
+        "key": "guam",
+        "value": "Guam"
+    },
+    {
+        "key": "guinea-bissau",
+        "value": "Guinea-Bissau"
+    },
+    {
+        "key": "guyana",
+        "value": "Guyana"
+    },
+    {
+        "key": "gaza strip",
+        "value": "Gaza Strip"
+    },
+    {
+        "key": "hong kong",
+        "value": "Hong Kong"
+    },
+    {
+        "key": "heard island and mcdonald islands",
+        "value": "Heard Island and McDonald Islands"
+    },
+    {
+        "key": "honduras",
+        "value": "Honduras"
+    },
+    {
+        "key": "croatia",
+        "value": "Croatia"
+    },
+    {
+        "key": "haiti",
+        "value": "Haiti"
+    },
+    {
+        "key": "hungary",
+        "value": "Hungary"
+    },
+    {
+        "key": "indonesia",
+        "value": "Indonesia"
+    },
+    {
+        "key": "ireland",
+        "value": "Ireland"
+    },
+    {
+        "key": "israel",
+        "value": "Israel"
+    },
+    {
+        "key": "isle of man",
+        "value": "Isle of Man"
+    },
+    {
+        "key": "india",
+        "value": "India"
+    },
+    {
+        "key": "british indian ocean territory",
+        "value": "British Indian Ocean Territory"
+    },
+    {
+        "key": "iraq",
+        "value": "Iraq"
+    },
+    {
+        "key": "iran",
+        "value": "Iran"
+    },
+    {
+        "key": "iceland",
+        "value": "Iceland"
+    },
+    {
+        "key": "italy",
+        "value": "Italy"
+    },
+    {
+        "key": "jersey",
+        "value": "Jersey"
+    },
+    {
+        "key": "jamaica",
+        "value": "Jamaica"
+    },
+    {
+        "key": "jordan",
+        "value": "Jordan"
+    },
+    {
+        "key": "japan",
+        "value": "Japan"
+    },
+    {
+        "key": "kenya",
+        "value": "Kenya"
+    },
+    {
+        "key": "kyrgyzstan",
+        "value": "Kyrgyzstan"
+    },
+    {
+        "key": "cambodia",
+        "value": "Cambodia"
+    },
+    {
+        "key": "kiribati",
+        "value": "Kiribati"
+    },
+    {
+        "key": "comoros",
+        "value": "Comoros"
+    },
+    {
+        "key": "saint kitts and nevis",
+        "value": "Saint Kitts and Nevis"
+    },
+    {
+        "key": "north korea",
+        "value": "North Korea"
+    },
+    {
+        "key": "south korea",
+        "value": "South Korea"
+    },
+    {
+        "key": "kuwait",
+        "value": "Kuwait"
+    },
+    {
+        "key": "cayman islands",
+        "value": "Cayman Islands"
+    },
+    {
+        "key": "kazakhstan",
+        "value": "Kazakhstan"
+    },
+    {
+        "key": "laos",
+        "value": "Laos"
+    },
+    {
+        "key": "lebanon",
+        "value": "Lebanon"
+    },
+    {
+        "key": "saint lucia",
+        "value": "Saint Lucia"
+    },
+    {
+        "key": "liechtenstein",
+        "value": "Liechtenstein"
+    },
+    {
+        "key": "sri lanka",
+        "value": "Sri Lanka"
+    },
+    {
+        "key": "liberia",
+        "value": "Liberia"
+    },
+    {
+        "key": "lesotho",
+        "value": "Lesotho"
+    },
+    {
+        "key": "lithuania",
+        "value": "Lithuania"
+    },
+    {
+        "key": "luxembourg",
+        "value": "Luxembourg"
+    },
+    {
+        "key": "latvia",
+        "value": "Latvia"
+    },
+    {
+        "key": "libya",
+        "value": "Libya"
+    },
+    {
+        "key": "morocco",
+        "value": "Morocco"
+    },
+    {
+        "key": "monaco",
+        "value": "Monaco"
+    },
+    {
+        "key": "moldova",
+        "value": "Moldova"
+    },
+    {
+        "key": "montenegro",
+        "value": "Montenegro"
+    },
+    {
+        "key": "madagascar",
+        "value": "Madagascar"
+    },
+    {
+        "key": "marshall islands",
+        "value": "Marshall Islands"
+    },
+    {
+        "key": "macedonia [fyrom]",
+        "value": "Macedonia [FYROM]"
+    },
+    {
+        "key": "mali",
+        "value": "Mali"
+    },
+    {
+        "key": "burma [myanmar]",
+        "value": "Burma [Myanmar]"
+    },
+    {
+        "key": "mongolia",
+        "value": "Mongolia"
+    },
+    {
+        "key": "macau",
+        "value": "Macau"
+    },
+    {
+        "key": "northern mariana islands",
+        "value": "Northern Mariana Islands"
+    },
+    {
+        "key": "martinique",
+        "value": "Martinique"
+    },
+    {
+        "key": "mauritania",
+        "value": "Mauritania"
+    },
+    {
+        "key": "montserrat",
+        "value": "Montserrat"
+    },
+    {
+        "key": "malta",
+        "value": "Malta"
+    },
+    {
+        "key": "mauritius",
+        "value": "Mauritius"
+    },
+    {
+        "key": "maldives",
+        "value": "Maldives"
+    },
+    {
+        "key": "malawi",
+        "value": "Malawi"
+    },
+    {
+        "key": "mexico",
+        "value": "Mexico"
+    },
+    {
+        "key": "malaysia",
+        "value": "Malaysia"
+    },
+    {
+        "key": "mozambique",
+        "value": "Mozambique"
+    },
+    {
+        "key": "namibia",
+        "value": "Namibia"
+    },
+    {
+        "key": "new caledonia",
+        "value": "New Caledonia"
+    },
+    {
+        "key": "niger",
+        "value": "Niger"
+    },
+    {
+        "key": "norfolk island",
+        "value": "Norfolk Island"
+    },
+    {
+        "key": "nigeria",
+        "value": "Nigeria"
+    },
+    {
+        "key": "nicaragua",
+        "value": "Nicaragua"
+    },
+    {
+        "key": "netherlands",
+        "value": "Netherlands"
+    },
+    {
+        "key": "norway",
+        "value": "Norway"
+    },
+    {
+        "key": "nepal",
+        "value": "Nepal"
+    },
+    {
+        "key": "nauru",
+        "value": "Nauru"
+    },
+    {
+        "key": "niue",
+        "value": "Niue"
+    },
+    {
+        "key": "new zealand",
+        "value": "New Zealand"
+    },
+    {
+        "key": "oman",
+        "value": "Oman"
+    },
+    {
+        "key": "panama",
+        "value": "Panama"
+    },
+    {
+        "key": "peru",
+        "value": "Peru"
+    },
+    {
+        "key": "french polynesia",
+        "value": "French Polynesia"
+    },
+    {
+        "key": "papua new guinea",
+        "value": "Papua New Guinea"
+    },
+    {
+        "key": "philippines",
+        "value": "Philippines"
+    },
+    {
+        "key": "pakistan",
+        "value": "Pakistan"
+    },
+    {
+        "key": "poland",
+        "value": "Poland"
+    },
+    {
+        "key": "saint pierre and miquelon",
+        "value": "Saint Pierre and Miquelon"
+    },
+    {
+        "key": "pitcairn islands",
+        "value": "Pitcairn Islands"
+    },
+    {
+        "key": "puerto rico",
+        "value": "Puerto Rico"
+    },
+    {
+        "key": "portugal",
+        "value": "Portugal"
+    },
+    {
+        "key": "palau",
+        "value": "Palau"
+    },
+    {
+        "key": "paraguay",
+        "value": "Paraguay"
+    },
+    {
+        "key": "qatar",
+        "value": "Qatar"
+    },
+    {
+        "key": "réunion",
+        "value": "Réunion"
+    },
+    {
+        "key": "romania",
+        "value": "Romania"
+    },
+    {
+        "key": "serbia",
+        "value": "Serbia"
+    },
+    {
+        "key": "russia",
+        "value": "Russia"
+    },
+    {
+        "key": "rwanda",
+        "value": "Rwanda"
+    },
+    {
+        "key": "saudi arabia",
+        "value": "Saudi Arabia"
+    },
+    {
+        "key": "solomon islands",
+        "value": "Solomon Islands"
+    },
+    {
+        "key": "seychelles",
+        "value": "Seychelles"
+    },
+    {
+        "key": "sudan",
+        "value": "Sudan"
+    },
+    {
+        "key": "sweden",
+        "value": "Sweden"
+    },
+    {
+        "key": "singapore",
+        "value": "Singapore"
+    },
+    {
+        "key": "saint helena",
+        "value": "Saint Helena"
+    },
+    {
+        "key": "slovenia",
+        "value": "Slovenia"
+    },
+    {
+        "key": "svalbard and jan mayen",
+        "value": "Svalbard and Jan Mayen"
+    },
+    {
+        "key": "slovakia",
+        "value": "Slovakia"
+    },
+    {
+        "key": "sierra leone",
+        "value": "Sierra Leone"
+    },
+    {
+        "key": "san marino",
+        "value": "San Marino"
+    },
+    {
+        "key": "senegal",
+        "value": "Senegal"
+    },
+    {
+        "key": "somalia",
+        "value": "Somalia"
+    },
+    {
+        "key": "suriname",
+        "value": "Suriname"
+    },
+    {
+        "key": "são tomé and príncipe",
+        "value": "São Tomé and Príncipe"
+    },
+    {
+        "key": "el salvador",
+        "value": "El Salvador"
+    },
+    {
+        "key": "syria",
+        "value": "Syria"
+    },
+    {
+        "key": "swaziland",
+        "value": "Swaziland"
+    },
+    {
+        "key": "turks and caicos islands",
+        "value": "Turks and Caicos Islands"
+    },
+    {
+        "key": "chad",
+        "value": "Chad"
+    },
+    {
+        "key": "french southern territories",
+        "value": "French Southern Territories"
+    },
+    {
+        "key": "togo",
+        "value": "Togo"
+    },
+    {
+        "key": "thailand",
+        "value": "Thailand"
+    },
+    {
+        "key": "tajikistan",
+        "value": "Tajikistan"
+    },
+    {
+        "key": "tokelau",
+        "value": "Tokelau"
+    },
+    {
+        "key": "timor-leste",
+        "value": "Timor-Leste"
+    },
+    {
+        "key": "turkmenistan",
+        "value": "Turkmenistan"
+    },
+    {
+        "key": "tunisia",
+        "value": "Tunisia"
+    },
+    {
+        "key": "tonga",
+        "value": "Tonga"
+    },
+    {
+        "key": "turkey",
+        "value": "Turkey"
+    },
+    {
+        "key": "trinidad and tobago",
+        "value": "Trinidad and Tobago"
+    },
+    {
+        "key": "tuvalu",
+        "value": "Tuvalu"
+    },
+    {
+        "key": "tanzania",
+        "value": "Tanzania"
+    },
+    {
+        "key": "ukraine",
+        "value": "Ukraine"
+    },
+    {
+        "key": "uganda",
+        "value": "Uganda"
+    },
+    {
+        "key": "u.s. minor outlying islands",
+        "value": "U.S. Minor Outlying Islands"
+    },
+    {
+        "key": "united states",
+        "value": "United States"
+    },
+    {
+        "key": "uruguay",
+        "value": "Uruguay"
+    },
+    {
+        "key": "uzbekistan",
+        "value": "Uzbekistan"
+    },
+    {
+        "key": "vatican city",
+        "value": "Vatican City"
+    },
+    {
+        "key": "saint vincent and the grenadines",
+        "value": "Saint Vincent and the Grenadines"
+    },
+    {
+        "key": "venezuela",
+        "value": "Venezuela"
+    },
+    {
+        "key": "british virgin islands",
+        "value": "British Virgin Islands"
+    },
+    {
+        "key": "u.s. virgin islands",
+        "value": "U.S. Virgin Islands"
+    },
+    {
+        "key": "vietnam",
+        "value": "Vietnam"
+    },
+    {
+        "key": "vanuatu",
+        "value": "Vanuatu"
+    },
+    {
+        "key": "wallis and futuna",
+        "value": "Wallis and Futuna"
+    },
+    {
+        "key": "samoa",
+        "value": "Samoa"
+    },
+    {
+        "key": "yemen",
+        "value": "Yemen"
+    },
+    {
+        "key": "mayotte",
+        "value": "Mayotte"
+    },
+    {
+        "key": "south africa",
+        "value": "South Africa"
+    },
+    {
+        "key": "zambia",
+        "value": "Zambia"
+    },
+    {
+        "key": "zimbabwe",
+        "value": "Zimbabwe"
+    }
+]
