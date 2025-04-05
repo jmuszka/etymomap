@@ -2,7 +2,6 @@ import React, {useContext, useEffect, useState} from 'react';
 import { ctx } from './GlobeBackgroundProvider';
 import ReactSearchBox from "react-search-box";
 import Button from '@mui/material/Button';
-import './UserInput.scss'
 
 function UserInput() {
     const { currentCountryName, setCurrentCountryName} = useContext(ctx);

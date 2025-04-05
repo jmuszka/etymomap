@@ -1,4 +1,3 @@
-import './App.css';
 import GlobeBackground from './GlobeBackground.js'
 import {GlobeBackgroundProvider} from './GlobeBackgroundProvider.js'
 import UserInput from './UserInput.js';
