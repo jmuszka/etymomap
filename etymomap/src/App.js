@@ -11,9 +11,9 @@ function App() {
     .catch(err => console.log(err))
   }, [])
 
-  let g = <GlobeBackgroundProvider style="position: relative;">
-    <GlobeBackground style="position: absolute; top: 0;">
-      <div id='bg-tint'>
+  let g = <GlobeBackgroundProvider>
+    <GlobeBackground>
+      <div id="bg-tint">
         <UserInput/>
       </div>
     </GlobeBackground>
