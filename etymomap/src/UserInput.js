@@ -6,10 +6,10 @@ import ReactSearchBox from "react-search-box";
 import Button from '@mui/material/Button';
 
 function UserInput() {
-    const { currentCountryName, setCurrentCountryName} = useContext(ctx); // Current country that is selected
+    const {setCurrentCountryName} = useContext(ctx); // Current country that is selected
     const {toggleFocus} = useContext(ctx); // Toggle hovering
     const [data, setData] = useState([]) // Country searching
-    const [ inputValue, updateInputValue ] = useState(""); // Country name that user input
+    const [inputValue, updateInputValue] = useState(""); // Country name that user input
 
     // Load data for country searching
     useEffect(() => {
@@ -31,12 +31,14 @@ function UserInput() {
         if (label === 'SELECT') {
             btn.innerText = 'DESELECT'; // Toggle button text
             setCurrentCountryName(inputValue); // Select country
-            // TODO: change the focus, disable search bar
         }
         // De-select country
         else {
-            btn.innerText = 'SELECT';
-            // TODO: change the focus, re enable search bar
+            btn.innerText = 'SELECT'; // Toggle button text
+
+            // Unselect country
+            setCurrentCountryName("");
+            updateInputValue("");
         }
 
         toggleFocus(inputValue); // Hover or stop hovering on selected country
@@ -45,14 +47,16 @@ function UserInput() {
     return(
     <div id='container'>
         <h1>EtymoMap</h1><br/>
-        <div className="search-box"><ReactSearchBox
+        <div className="search-box">
+            <ReactSearchBox
                 placeholder = "Enter country" // Default text
                 value=""
                 data = {data} // Country search data
                 onSelect={(record) => updateInputValue(record.item.value)}
                 style={{display: 'block-inline'}}
-            /></div>
-        <div className="button"><Button 
+                disabled="true"/>
+        </div>
+        <div className="button"><Button
             id='selectBtn'
             variant="contained"
             onClick={selectBtnClick}
