@@ -1,51 +1,54 @@
+// User can search for country and choose to hover over it
+
 import React, {useContext, useEffect, useState} from 'react';
 import { ctx } from './GlobeBackgroundProvider';
 import ReactSearchBox from "react-search-box";
 import Button from '@mui/material/Button';
 
 function UserInput() {
-    const { currentCountryName, setCurrentCountryName} = useContext(ctx);
-    const {toggleFocus} = useContext(ctx);
-    const [data, setData] = useState([])
-    const [ inputValue, updateInputValue ] = useState("");
+    const { currentCountryName, setCurrentCountryName} = useContext(ctx); // Current country that is selected
+    const {toggleFocus} = useContext(ctx); // Toggle hovering
+    const [data, setData] = useState([]) // Country searching
+    const [ inputValue, updateInputValue ] = useState(""); // Country name that user input
 
+    // Load data for country searching
     useEffect(() => {
         fetch('countrySearch.json').then(res => res.json()).then(setData);
     }, []);
 
+
+    // What to do upon clicking the SELECT button
     const selectBtnClick = () => {
 
+        // Get button and button text
         let btn = document.getElementById('selectBtn');
         let label = btn.innerText;
 
+        // If no country was entered, do nothing
         if (!inputValue) return;
 
         // Select country
         if (label === 'SELECT') {
-            btn.innerText = 'DESELECT';
-            console.log(inputValue)
-            setCurrentCountryName(inputValue);
-            console.log(currentCountryName)
-            // todo: change the focus, disable search bar
+            btn.innerText = 'DESELECT'; // Toggle button text
+            setCurrentCountryName(inputValue); // Select country
+            // TODO: change the focus, disable search bar
         }
-        // Deselect country
+        // De-select country
         else {
             btn.innerText = 'SELECT';
-            // change the focus, re enable search bar
+            // TODO: change the focus, re enable search bar
         }
 
-        toggleFocus(inputValue);
+        toggleFocus(inputValue); // Hover or stop hovering on selected country
     }
 
-    //return(<form type="text" ><input type="text"></input> <button onClick={setFocusCountry()}>Change country</button></form>)
     return(
     <div id='container'>
         <h1>EtymoMap</h1><br/>
         <div className="search-box"><ReactSearchBox
-                placeholder = "Enter country"
-                value="Doe"
-                data = {data}
-                callback={(record) => console.log(record)}
+                placeholder = "Enter country" // Default text
+                value=""
+                data = {data} // Country search data
                 onSelect={(record) => updateInputValue(record.item.value)}
                 style={{display: 'block-inline'}}
             /></div>

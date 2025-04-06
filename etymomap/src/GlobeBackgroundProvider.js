@@ -1,20 +1,29 @@
-import React, {useState, useRef, useContext, createContext, useEffect} from 'react';
+// Change state of globe through intertaction
 
-export const ctx = createContext();
+// The user can select country/countries, and toggle hovering
+// If hovering over a country, zoom in on the country (change long, lat, alt) and stop rotating globe
+// When ending hovering mode, reset to default lat and long, and resume rotation
+
+import React, {useState, useRef, createContext, useEffect} from 'react';
+export const ctx = createContext(); // To pass information between components
 
 export const GlobeBackgroundProvider = ({children}) => {
     const [currentCountryName, setCurrentCountryName] = useState("");
-    const [focus, setFocus] = useState(false);
-    const globeEl = useRef();
-    const [countries, setCountries] = useState({ features: []});
-    const [locations, setLocations] = useState([]);
+    const [focus, setFocus] = useState(false); // country selection
+    const globeEl = useRef(); // Globe.gl reference
 
-    const defaultLatitude = 25.0;
-    const defaultLongitude = 0.0;
-    const defaultAltitude = 1.2;
-    const focusedAltitude = 0.5;
-    const transitionTime = 1000; //ms
-    const rotateSpeed = 0.8;
+    // TODO: consolidate these two dataset
+    const [countries, setCountries] = useState({ features: []}); // Country drawing data
+    const [locations, setLocations] = useState([]); // Country hovering data
+
+    // Globe configurations
+    const DEFAULT_LATITUDE = 25.0;
+    const DEFAULT_LONGITUDE = 0.0;
+    const DEFAULT_ALTITUDE = 1.2;
+
+    const FOCUSED_ALTITUDE = 0.5;
+    const TRANSITION_TIME = 1000; //ms
+    const ROTATION_SPEED = 0.8;
 
     // Initialization
     useEffect(() => {
@@ -23,48 +32,68 @@ export const GlobeBackgroundProvider = ({children}) => {
         fetch('coordinates.json').then(res => res.json()).then(setLocations);
 
         globeEl.current.controls().autoRotate = true;
-        globeEl.current.controls().autoRotateSpeed = rotateSpeed;
+        globeEl.current.controls().autoRotateSpeed = ROTATION_SPEED;
         globeEl.current.controls().enableZoom = false;
 
-        globeEl.current.pointOfView({ lat: defaultLatitude, lng: defaultLongitude, altitude: defaultAltitude }); // set globe angle, position, size
+        // Set globe angle, position, size
+        globeEl.current.pointOfView({ 
+            lat: DEFAULT_LATITUDE, 
+            lng: DEFAULT_LONGITUDE, 
+            altitude: DEFAULT_ALTITUDE });
     }, []);
 
 
+    // Toggle between spinning globe or hovering over a country
     const toggleFocus = (countryName) => {
         const location = getCoordinatesByName(countryName);
         setCurrentCountryName(countryName)
-        //console.log("TOGGLE FOCUS: " + currentCountryName)
 
-        if (!location) return
+        if (!location) return // do nothing if country does not exist
 
+        // If not currently focused, focus
         if (!focus) {
-            globeEl.current.pointOfView({ lat: location.latitude, lng: location.longitude, altitude: focusedAltitude}, transitionTime)
-            globeEl.current.controls().autoRotateSpeed = 0;
+            globeEl.current.pointOfView({ 
+                lat: location.latitude, // Go to latitude of selected country
+                lng: location.longitude, // Go to longitude of selected country
+                altitude: FOCUSED_ALTITUDE}, // Go to hover altitude
+            TRANSITION_TIME);
+            globeEl.current.controls().autoRotateSpeed = 0; // Stop rotating
         }
+        // If currently focused, unfocus
         else {
-            globeEl.current.pointOfView({ lat: defaultLatitude, altitude: defaultAltitude }, transitionTime); // set globe angle, position, size
-            globeEl.current.controls().autoRotateSpeed = rotateSpeed;
+            globeEl.current.pointOfView({ 
+                // Do not change longitude
+                lat: DEFAULT_LATITUDE,  // Reset latitude
+                altitude: DEFAULT_ALTITUDE // Reset altitude
+            }, TRANSITION_TIME); // Set globe angle, position, size
+            globeEl.current.controls().autoRotateSpeed = ROTATION_SPEED; // Start rotating agaion
         }
 
+        // Flip focus bit
         setFocus(!focus);
     }
 
+    // Get the name of the current country that is selected
     const getCurrentCountryName = () => {
         return currentCountryName;
     }
 
+    // Determine if currently hovering over selected country or not
     const getFocusValue = () => {
         return focus;
     }
 
+    // Get the location of a country by its name
     const getCoordinatesByName = (countryName) => {
         for (let i = 0; i < locations.length; i++)
             if (locations[i]['name'] === countryName) return {latitude: locations[i]['latitude'], longitude: locations[i]['longitude']}
 
+        // Return nothing if country not found
         return null;
     }
 
     return(
+        // Allow information about country selection and hovering to be accessed by other components
         <ctx.Provider value={{currentCountryName, setCurrentCountryName, globeEl, toggleFocus, countries, locations, getCurrentCountryName, getFocusValue}}>
             {children}
         </ctx.Provider> 
