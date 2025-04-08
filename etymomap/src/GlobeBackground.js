@@ -4,8 +4,8 @@ import React, {useContext} from 'react';
 import Globe from 'react-globe.gl';
 import { ctx } from './GlobeBackgroundProvider';
 
-const DEFAULT_COLOR = "#421854"; // Default country color
-const HIGHLIGHT_COLOR = "#7d5125"; // Highlighted country color
+const DEFAULT_COLOR = "#69441f"; // Default country color
+const HIGHLIGHT_COLOR = "#421854"; // Highlighted country color 
 
 function GlobeBackground({children}) {
     const {globeEl} = useContext(ctx); // Globe.gl object reference
@@ -16,7 +16,7 @@ function GlobeBackground({children}) {
     // Determine which color to paint a country
     const colorCountry = (d) => {
         // If country is selected, use highlight color, otherwise use default color
-        return d.properties.SOVEREIGNT===getCurrentCountryName() && getFocusValue() ? DEFAULT_COLOR : HIGHLIGHT_COLOR;
+        return d.properties.SOVEREIGNT===getCurrentCountryName() && getFocusValue() ? HIGHLIGHT_COLOR : DEFAULT_COLOR;
     }
 
 
@@ -31,9 +31,9 @@ function GlobeBackground({children}) {
             animateIn={true} // Spin globe when loading
 
             polygonsData={countries.features.filter(d => d.properties.ISO_A2 !== 'AQ')} // Draw countries
-            polygonAltitude={0.01} // Distance of land above water
+            polygonAltitude={0.015} // Distance of land above water
             polygonCapColor={d => colorCountry(d)} // Set colors of countries
-            // polygonStrokeColor={() => '#111'} // Draw borders between countries
+            polygonStrokeColor={() => DEFAULT_COLOR} // Draw borders between countries
             polygonsTransitionDuration={0} // Draw polygons right away
         />
 
