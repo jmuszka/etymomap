@@ -14,7 +14,11 @@
   "description": "",
   "dependencies": {
     "dotenv": "^16.4.5",
+    "globe": "^0.2.0",
+    "globe.gl": "^2.33.1",
     "openai": "^4.67.3",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
     "readline-sync": "^1.4.10",
     "ts-node": "^10.9.2",
     "whatwg-url": "^14.0.0"

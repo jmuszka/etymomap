@@ -1,0 +1,59 @@
+html, body {
+  margin: 0; 
+  height: 100%; 
+  overflow: hidden;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Disable text selection */
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+   -khtml-user-select: none; /* Konqueror HTML */
+     -moz-user-select: none; /* Old versions of Firefox */
+      -ms-user-select: none; /* Internet Explorer/Edge */
+          user-select: none; /* Non-prefixed version, currently
+                                supported by Chrome, Edge, Opera and Firefox */
+}
+
+/* Where user searches for a country */
+.search-box {
+  display: inline-block;
+  margin-right: 10px; /* space between search box and button */
+  padding:0;
+}
+
+h1 {
+  margin: 0;
+}
+
+/* Where user selects and de-selects a country */
+.button {
+  display: inline-block;
+}
+
+/* Holds title, country search, selection button, and description */
+#container {
+  /* size */
+  width: 32%;
+  padding:1%;
+  margin: 1%;
+
+  /* position */
+  top: 0; 
+  left: 0;
+  position: fixed;
+
+  color: #334444;
+  background-color: #99999944;
+  font-family: 'Trebuchet MS', sans-serif;
+
+  border-radius: 0.5vw;
+}
+
+/* Adds magenta vignette */
+#bg-tint {
+  width: 100%; height: 100%;
+  background: radial-gradient(circle at center, #00000000 50%, magenta 150%);
+  position: fixed;
+}
