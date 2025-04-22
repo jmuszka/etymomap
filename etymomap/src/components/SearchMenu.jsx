@@ -2,7 +2,7 @@
 
 import React, {useEffect, useState} from 'react';
 import Button from '@mui/material/Button';
-import {Dictionary} from './Merriam Webster/Dictionary';
+import {Dictionary} from '../Merriam Webster/Dictionary';
 import AsyncSelect from 'react-select/async';
 
 
