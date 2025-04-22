@@ -9,6 +9,9 @@
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "@types/jest": "^29.5.14",
+    "@types/react": "^19.1.2",
+    "@types/react-dom": "^19.1.2",
     "crypto-browserify": "^3.12.1",
     "d3": "^7.9.0",
     "dotenv": "^16.5.0",
@@ -26,6 +29,7 @@
     "react-select": "^5.10.1",
     "sass": "^1.83.1",
     "stream-browserify": "^3.0.0",
+    "typescript": "^5.8.3",
     "web-vitals": "^2.1.4",
     "zlib-browserify": "^0.0.3"
   },
