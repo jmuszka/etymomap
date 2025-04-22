@@ -1,9 +1,9 @@
 // Serve application
 
 import React from 'react';
-import GlobeBackground from './GlobeBackground.js'
-import {GlobeBackgroundProvider} from './GlobeBackgroundProvider.js'
-import SearchMenu from './SearchMenu.js';
+import GlobeBackground from './GlobeBackground.jsx'
+import {GlobeBackgroundProvider} from './GlobeBackgroundProvider.jsx'
+import SearchMenu from './SearchMenu.jsx';
 
 const App: React.FC = () => { 
   
