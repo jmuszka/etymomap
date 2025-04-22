@@ -1,20 +1,33 @@
 // User can search for a word in the Merriam-Webster dictionary
 
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import Button from '@mui/material/Button';
 import {Dictionary} from '../Merriam Webster/Dictionary';
+import {Word} from '../Merriam Webster/Word'
 import AsyncSelect from 'react-select/async';
-import Description from './Description.tsx'
+import type { GroupBase, OptionsOrGroups } from 'react-select';
+import Description from './Description'
 
-function SearchMenu() {
+interface Props {
+    setActivePage: React.Dispatch<React.SetStateAction<string>>;
+}
 
-    const [searchOptions, setSearchOptions] = useState([]);
+interface ClickOption {
+    value: string;
+    label: string;
+}
+
+interface SearchOption {
+    key: string;
+    word: Word;
+}
+
+function SearchMenu({setActivePage}: Props) {
+
+    const [searchOptions, setSearchOptions]: [SearchOption[], React.Dispatch<React.SetStateAction<SearchOption[]>>] = useState([]);
 
     // To search words in the merriam webster dictionary
     const d = new Dictionary(process.env.REACT_APP_MERRIAM_WEBSTER_API_KEY);
-
-
-    // Use useEffect to re render
 
 
     const searchDictionary = async (query) => {
@@ -27,8 +40,8 @@ function SearchMenu() {
             return;
         }
 
-        let options = [];
-        let searchResults = [];
+        let options: ClickOption[] = [];
+        let searchResults: SearchOption[] = [];
         for (let i = 0; i < m.length; i++) {
             options.push({
                 value: m[i].toString()+i,
@@ -46,10 +59,12 @@ function SearchMenu() {
 
     return(
     <div id='container'>
-        <div class="title">EtymoMap</div><br/>
+        <div className="title">EtymoMap</div><br/>
         <div style={{display: 'inline-block', marginRight: '10px'}}>
                 <AsyncSelect 
-                    loadOptions={searchDictionary}
+                    loadOptions={searchDictionary as (
+                        inputValue: string
+                    ) => Promise<OptionsOrGroups<ClickOption, GroupBase<ClickOption>>>}
                     components={{
                         DropdownIndicator: () => null,
                         IndicatorSeparator: () => null
@@ -65,7 +80,7 @@ function SearchMenu() {
                     }}
                     onChange={(selection) => {
                         for (let i = 0; i < searchOptions.length; i++) {
-                            if (searchOptions[i].key === selection.value) {
+                            if (selection && searchOptions[i].key === selection.value) {
                                 console.log(searchOptions[i].word)
                                 break;
                             }
@@ -77,7 +92,7 @@ function SearchMenu() {
          <div className="button"><Button
                 id='selectBtn'
                 variant="contained"
-                // onClick={setText}
+                onClick={() => setActivePage("blank")}
         >Search</Button></div>
     
         <Description text={"From the viking invasions to the Norman-French \

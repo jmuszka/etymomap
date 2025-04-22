@@ -11,8 +11,8 @@ export class Dictionary {
      * Store API key
      * @param key Merriam-Webster API key
      */
-    public constructor(key: String) {
-        this.API_KEY = key;
+    public constructor(key: String|undefined) {
+        if (key) this.API_KEY = key;
     }
 
     /**
