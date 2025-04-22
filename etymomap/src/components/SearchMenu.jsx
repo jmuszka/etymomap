@@ -4,7 +4,7 @@ import React, {useEffect, useState} from 'react';
 import Button from '@mui/material/Button';
 import {Dictionary} from '../Merriam Webster/Dictionary';
 import AsyncSelect from 'react-select/async';
-
+import Description from './Description.tsx'
 
 function SearchMenu() {
 
@@ -80,9 +80,21 @@ function SearchMenu() {
                 // onClick={setText}
         >Search</Button></div>
     
+        <Description text={"From the viking invasions to the Norman-French \
+                            conquest in 1066, and from post-Renaissance \
+                            neologisms to its status as a global lingua \
+                            franca, the English language boasts a \
+                            fascinating history and development. Despite \
+                            its origins as a West Germanic language, over \
+                            two-thirds of the English lexicon consists of \
+                            Romance vocabulary, mainly from French and \
+                            Latin, with signiciant influence from Old \
+                            Norse, Greek, and many others as well."} />
 
-        <p class="description">From the viking invasions to the Norman-French conquest in 1066, and from post-Renaissance neologisms to its status as a global lingua franca, the English language boasts a fascinating history and development. Despite its origins as a West Germanic language, over two-thirds of the English lexicon consists of Romance vocabulary, mainly from French and Latin, with signiciant influence from Old Norse, Greek, and many others as well.</p>
-        <p class="description">Search for any word in the English language and view a visualization of various linguistic data surrounding its etymology and other attributes.</p>
+        <Description text={"Search for any word in the English language \
+                            and view a visualization of various \
+                            linguistic data surrounding its etymology \
+                            and other attributes."}/>
     </div>
     )
 }
