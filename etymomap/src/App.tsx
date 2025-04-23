@@ -23,7 +23,7 @@ const App: React.FC = () => {
   // Store all the available pages to switch from
   const PAGES: Dictionary  = {
     "main": <MainMenu setActivePage={setActivePage} setCurrentWord={setCurrentWord}/>,
-    "word": <WordPage currentWord={currentWord}/>
+    "word": <WordPage setActivePage={setActivePage} currentWord={currentWord}/>
   };
 
   // On app load

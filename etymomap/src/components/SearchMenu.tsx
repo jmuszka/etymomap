@@ -46,7 +46,7 @@ function SearchMenu({setActivePage, setCurrentWord}: Props) {
         for (let i = 0; i < m.length; i++) {
             options.push({
                 value: m[i].toString()+i,
-                label: m[i].toString()
+                label: m[i].toString() + " - " + m[i].getDefinitions()[0].substring(0, 21 - m[i].toString().length)
             });
             searchResults.push({
                 key: m[i].toString()+i,

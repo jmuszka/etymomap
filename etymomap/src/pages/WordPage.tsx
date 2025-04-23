@@ -1,12 +1,14 @@
 import React, {useEffect} from 'react'
 import Description from '../components/Description'
 import { Word } from '../Merriam Webster/Word'
+import BackButton from '../components/BackButton'
 
 interface Props {
+    setActivePage: React.Dispatch<React.SetStateAction<string>>;
     currentWord: Word;
 }
 
-const WordPage = ({currentWord}: Props) => {
+const WordPage = ({setActivePage, currentWord}: Props) => {
 
     let definitions: React.JSX.Element[] = [];
     for (let i = 0; i < currentWord.getDefinitions().length; i++) {
@@ -16,6 +18,7 @@ const WordPage = ({currentWord}: Props) => {
     return (
         <>
             {definitions}
+            <BackButton setActivePage={setActivePage}/>
         </>
     );
 }
