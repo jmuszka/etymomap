@@ -10,6 +10,7 @@ import Description from './Description'
 
 interface Props {
     setActivePage: React.Dispatch<React.SetStateAction<string>>;
+    setCurrentWord: React.Dispatch<React.SetStateAction<Word>>;
 }
 
 interface ClickOption {
@@ -22,7 +23,7 @@ interface SearchOption {
     word: Word;
 }
 
-function SearchMenu({setActivePage}: Props) {
+function SearchMenu({setActivePage, setCurrentWord}: Props) {
 
     const [searchOptions, setSearchOptions]: [SearchOption[], React.Dispatch<React.SetStateAction<SearchOption[]>>] = useState([]);
 
@@ -58,7 +59,7 @@ function SearchMenu({setActivePage}: Props) {
     }
 
     return(
-    <div id='container'>
+    <>
         <div className="title">EtymoMap</div><br/>
         <div style={{display: 'inline-block', marginRight: '10px'}}>
                 <AsyncSelect 
@@ -81,7 +82,7 @@ function SearchMenu({setActivePage}: Props) {
                     onChange={(selection) => {
                         for (let i = 0; i < searchOptions.length; i++) {
                             if (selection && searchOptions[i].key === selection.value) {
-                                console.log(searchOptions[i].word)
+                                setCurrentWord(searchOptions[i].word);
                                 break;
                             }
                         }
@@ -92,7 +93,7 @@ function SearchMenu({setActivePage}: Props) {
          <div className="button"><Button
                 id='selectBtn'
                 variant="contained"
-                onClick={() => setActivePage("blank")}
+                onClick={() => setActivePage("word")}
         >Search</Button></div>
     
         <Description text={"From the viking invasions to the Norman-French \
@@ -110,7 +111,7 @@ function SearchMenu({setActivePage}: Props) {
                             and view a visualization of various \
                             linguistic data surrounding its etymology \
                             and other attributes."}/>
-    </div>
+    </>
     )
 }
 
