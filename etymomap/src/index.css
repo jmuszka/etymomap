@@ -19,28 +19,35 @@ h1 {
 }
 
 /* Holds title, country search, selection button, and description */
-#container {
-  /* size */
+.container {
+  border-radius: 1.5vw;
+
+  background-color: #88888844;
+
+  color: #223333;
+  font-family: 'Trebuchet MS', sans-serif;
+  text-align: center;
+
+  min-width: 55vw;
+  max-width: 100vw;
+
   margin-left: 17.5vw;
   margin-right: 17.5vw;
+
   padding-left: 5vw;
   padding-right: 5vw;
   padding-top: 2.5vw;
   padding-bottom: 5vw;
-  top: 50vh;
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
+}
 
-  /* position */
-  text-align:center;
+#main-menu {
   position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
 
-  /* color: #334444; */
-  color: #223333;
-  background-color: #88888844;
-  font-family: 'Trebuchet MS', sans-serif;
-
-  border-radius: 1.5vw;
+#word-menu {
+  margin-top: 5.25vw;
 }
 
 /* Adds magenta vignette */
@@ -52,7 +59,8 @@ h1 {
 
 .description {
   /* text-align: left; */
-  padding: 1%;
+  /* padding: 1%; */
+  margin: 0;
   font-size: 13pt;
   text-shadow: 2px 2px 4px gray;
 }

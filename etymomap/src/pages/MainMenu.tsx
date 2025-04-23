@@ -10,9 +10,9 @@ interface Props {
 const MainMenu = ({setActivePage, setCurrentWord}: Props) => {
 
     return (
-        <>
+        <div id="main-menu" className="container">
             <SearchMenu setActivePage={setActivePage} setCurrentWord={setCurrentWord}/>
-        </>
+        </div>
     );
 }
 

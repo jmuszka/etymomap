@@ -36,12 +36,10 @@ const App: React.FC = () => {
       <GlobeBackground>
         <div id="bg-tint">
 
-          <div id='container'>
             {
             /* Current page content */
             PAGES[activePage]
             }
-          </div>
 
         </div>
       </GlobeBackground>

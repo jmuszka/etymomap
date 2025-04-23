@@ -16,10 +16,11 @@ const WordPage = ({setActivePage, currentWord}: Props) => {
     }
 
     return (
-        <>
+        <div id="word-menu" className="container">
+            <h1 className="title">{currentWord.toString()}</h1>
             {definitions}
             <BackButton setActivePage={setActivePage}/>
-        </>
+        </div>
     );
 }
 

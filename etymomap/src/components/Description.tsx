@@ -9,6 +9,7 @@ const Description: React.FC<Props> = ({text}) => {
 
     return (
         <>
+            <br/><br/><br/>
             <p className="description">{text}</p>
         </>
     );

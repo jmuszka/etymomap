@@ -61,7 +61,7 @@ function SearchMenu({setActivePage, setCurrentWord}: Props) {
     return(
     <>
         <div className="title">EtymoMap</div><br/>
-        <div style={{display: 'inline-block', marginRight: '10px'}}>
+        <div style={{display: 'inline-block'}}>
                 <AsyncSelect 
                     loadOptions={searchDictionary as (
                         inputValue: string
@@ -76,7 +76,8 @@ function SearchMenu({setActivePage, setCurrentWord}: Props) {
                         container: (base) => ({
                             ...base,
                             width: "200px",
-                            textAlign: "left"
+                            textAlign: "left",
+                            marginRight: '10px'
                         })
                     }}
                     onChange={(selection) => {
