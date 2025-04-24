@@ -11,7 +11,7 @@ interface Props {
 const MainMenu = ({setActivePage, setCurrentWord}: Props) => {
 
     return (
-        <div>
+        <div className="flex flex-col items-center">
             <div className="text-4xl font-bold my-5 select-none text-shadow text-shadow-gray-500">EtymoMap</div>
             <SearchMenu setActivePage={setActivePage} setCurrentWord={setCurrentWord}/>
 

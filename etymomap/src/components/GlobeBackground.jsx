@@ -27,7 +27,7 @@ function GlobeBackground() {
                 fixed 
                 -z-10 
                 w-full h-full 
-                bg-[radial-gradient(circle_at_center,_#00000000_50%,_magenta_225%)]
+                bg-[radial-gradient(circle_at_center,_#00000000_70%,_magenta_170%)]
                 lg:bg-[radial-gradient(circle_at_center,_#00000000_50%,_magenta_150%)]
             "/>
 

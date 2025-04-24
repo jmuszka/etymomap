@@ -21,6 +21,41 @@ const WordPage = ({setActivePage, currentWord}: Props) => {
 
             <h1 className="font-bold text-2xl">{currentWord.toString()}</h1>
             {definitions}
+
+            <Description text={"From the viking invasions to the Norman-French \
+                            conquest in 1066, and from post-Renaissance \
+                            neologisms to its status as a global lingua \
+                            franca, the English language boasts a \
+                            fascinating history and development. Despite \
+                            its origins as a West Germanic language, over \
+                            two-thirds of the English lexicon consists of \
+                            Romance vocabulary, mainly from French and \
+                            Latin, with significiant influence from Old \
+                            Norse, Greek, and many others as well."} />
+
+<Description text={"From the viking invasions to the Norman-French \
+                            conquest in 1066, and from post-Renaissance \
+                            neologisms to its status as a global lingua \
+                            franca, the English language boasts a \
+                            fascinating history and development. Despite \
+                            its origins as a West Germanic language, over \
+                            two-thirds of the English lexicon consists of \
+                            Romance vocabulary, mainly from French and \
+                            Latin, with significiant influence from Old \
+                            Norse, Greek, and many others as well."} />
+
+        <Description text={"From the viking invasions to the Norman-French \
+                            conquest in 1066, and from post-Renaissance \
+                            neologisms to its status as a global lingua \
+                            franca, the English language boasts a \
+                            fascinating history and development. Despite \
+                            its origins as a West Germanic language, over \
+                            two-thirds of the English lexicon consists of \
+                            Romance vocabulary, mainly from French and \
+                            Latin, with significiant influence from Old \
+                            Norse, Greek, and many others as well."} />  
+                            
+                                                      
         </>
     );
 }
