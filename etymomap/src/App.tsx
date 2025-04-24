@@ -38,7 +38,7 @@ const App: React.FC = () => {
       <GlobeBackground/>
     </GlobeBackgroundProvider>
 
-    <div className="fixed w-full p-2 lg:px-[18vw]">
+    <div className="fixed w-full p-1 lg:px-[18vw]">
       <div className="
           bg-[#88888844]
           rounded-2xl
