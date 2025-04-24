@@ -4,7 +4,7 @@ AI-powered app to explore the etymology of the English language
 #### (IN DEVELOPMENT)
 
 ## Description
-From the viking invasions to the Norman-French conquest in 1066, and from post-Renaissance neologisms to its status as a global lingua franca, the English language boasts a fascinating history and development. Despite its origins as a West Germanic language, over two-thirds of the English lexicon consists of Romance vocabulary, mainly from French and Latin, with signiciant influence from Old Norse, Greek, and many others as well.
+From the viking invasions to the Norman-French conquest in 1066, and from post-Renaissance neologisms to its status as a global lingua franca, the English language boasts a fascinating history and development. Despite its origins as a West Germanic language, over two-thirds of the English lexicon consists of Romance vocabulary, mainly from French and Latin, with significant influence from Old Norse, Greek, and many others as well.
 
 I have always enjoyed analyzing the linguistic origins of the vocabulary I come across in day-to-day life, so I decided to create an app to streamline the process. With EtymoMap, users can enter any word in the English language and receive various linguistic data surrounding its etymology and other attributes.
 
