@@ -16,8 +16,8 @@ const WordPage = ({setActivePage, currentWord}: Props) => {
     }
 
     return (
-        <div id="word-menu" className="container">
-            <h1 className="title">{currentWord.toString()}</h1>
+        <div>
+            <h1 className="font-bold text-2xl">{currentWord.toString()}</h1>
             {definitions}
             <BackButton setActivePage={setActivePage}/>
         </div>

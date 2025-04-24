@@ -32,18 +32,28 @@ const App: React.FC = () => {
   }, [])
 
   return(
+    <>
+
     <GlobeBackgroundProvider>
-      <GlobeBackground>
-        <div id="bg-tint">
-
-            {
-            /* Current page content */
-            PAGES[activePage]
-            }
-
-        </div>
-      </GlobeBackground>
+      <GlobeBackground/>
     </GlobeBackgroundProvider>
+
+    <div className="fixed w-full p-2 lg:px-[18vw]">
+      <div className="
+          bg-[#88888844]
+          rounded-2xl
+          p-5
+          lg:p-10
+
+          text-center
+          text-[#223333]
+          font-['Trebuchet MS', sans-serif]
+      ">
+        {PAGES[activePage]}
+      </div>
+    </div>
+
+    </>
   );
 }
 

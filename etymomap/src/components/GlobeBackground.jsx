@@ -7,7 +7,7 @@ import { ctx } from './GlobeBackgroundProvider';
 const DEFAULT_COLOR = "#69441f"; // Default country color
 const HIGHLIGHT_COLOR = "#421854"; // Highlighted country color 
 
-function GlobeBackground({children}) {
+function GlobeBackground() {
     const {globeEl} = useContext(ctx); // Globe.gl object reference
     const {countries} = useContext(ctx); // Country data
     const {getCurrentCountryName, getFocusValue} = useContext(ctx); // Currently-selected country
@@ -23,25 +23,31 @@ function GlobeBackground({children}) {
     // Create globe
     return (
         <>
-            <div id="globe">
-                <Globe
-                    ref={globeEl}
-                    globeImageUrl={'water.png'} // Globe texture
-                    backgroundColor='#f6e6d0' // Sky color
-                    showAtmosphere={false}
-                    animateIn={true} // Spin globe when loading
+            <div className="
+                fixed 
+                -z-10 
+                w-full h-full 
+                bg-[radial-gradient(circle_at_center,_#00000000_50%,_magenta_225%)]
+                lg:bg-[radial-gradient(circle_at_center,_#00000000_50%,_magenta_150%)]
+            "/>
 
-                    polygonsData={countries.features.filter(d => d.properties.ISO_A2 !== 'AQ')} // Draw countries
-                    polygonAltitude={0.015} // Distance of land above water
-                    polygonCapColor={d => colorCountry(d)} // Set colors of countries
-                    polygonStrokeColor={() => DEFAULT_COLOR} // Draw borders between countries
-                    polygonsTransitionDuration={0} // Draw polygons right away
-                />
+            <div className="fixed -z-20">
+
+                    <Globe
+                        ref={globeEl}
+                        globeImageUrl={'water.png'} // Globe texture
+                        backgroundColor='#f6e6d0' // Sky color
+                        showAtmosphere={false}
+                        animateIn={true} // Spin globe when loading
+
+                        polygonsData={countries.features.filter(d => d.properties.ISO_A2 !== 'AQ')} // Draw countries
+                        polygonAltitude={0.015} // Distance of land above water
+                        polygonCapColor={d => colorCountry(d)} // Set colors of countries
+                        polygonStrokeColor={() => DEFAULT_COLOR} // Draw borders between countries
+                        polygonsTransitionDuration={0} // Draw polygons right away
+                    />
             </div>
-
-            <div style={{position: 'absolute', top: 0, left: 0}}>{children}</div>
         </>
-    
     );
     
 }

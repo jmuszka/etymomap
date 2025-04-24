@@ -1,5 +1,4 @@
 import React from 'react';
-import '../index.css'
 
 interface Props {
     text: String;
@@ -8,10 +7,9 @@ interface Props {
 const Description: React.FC<Props> = ({text}) => {
 
     return (
-        <>
-            <br/><br/><br/>
-            <p className="description">{text}</p>
-        </>
+        <div className="my-5 text-shadow text-shadow-gray-500">
+            {text}
+        </div>
     );
 }
 

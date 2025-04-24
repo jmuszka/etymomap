@@ -6,7 +6,6 @@ import {Dictionary} from '../Merriam Webster/Dictionary';
 import {Word} from '../Merriam Webster/Word'
 import AsyncSelect from 'react-select/async';
 import type { GroupBase, OptionsOrGroups } from 'react-select';
-import Description from './Description'
 
 interface Props {
     setActivePage: React.Dispatch<React.SetStateAction<string>>;
@@ -58,10 +57,19 @@ function SearchMenu({setActivePage, setCurrentWord}: Props) {
         return options
     }
 
+    const selectNewWord = (selection) => {
+        for (let i = 0; i < searchOptions.length; i++) {
+            if (selection && searchOptions[i].key === selection.value) {
+                setCurrentWord(searchOptions[i].word);
+                break;
+            }
+        }
+    }
+
     return(
     <>
-        <div className="title">EtymoMap</div><br/>
-        <div style={{display: 'inline-block'}}>
+        <div className="space-x-1">
+            <div className="w-[250px] inline-block">
                 <AsyncSelect 
                     loadOptions={searchDictionary as (
                         inputValue: string
@@ -72,46 +80,20 @@ function SearchMenu({setActivePage, setCurrentWord}: Props) {
                     }}
                     isClearable
                     placeholder="Enter a word"
-                    styles={{
-                        container: (base) => ({
-                            ...base,
-                            width: "200px",
-                            textAlign: "left",
-                            marginRight: '10px'
-                        })
-                    }}
-                    onChange={(selection) => {
-                        for (let i = 0; i < searchOptions.length; i++) {
-                            if (selection && searchOptions[i].key === selection.value) {
-                                setCurrentWord(searchOptions[i].word);
-                                break;
-                            }
-                        }
-                    }}
+                    onChange={(selection) => {selectNewWord(selection)}}
                 />
+            </div>
+
+        <div className="inline-block relative">
+            <Button
+                    id='selectBtn'
+                    variant="contained"
+                    style={{position: "relative", top: "-1.5px"}}
+                    onClick={() => {setActivePage("word")}}>
+                Search
+            </Button>
         </div>
-
-         <div className="button"><Button
-                id='selectBtn'
-                variant="contained"
-                onClick={() => setActivePage("word")}
-        >Search</Button></div>
-    
-        <Description text={"From the viking invasions to the Norman-French \
-                            conquest in 1066, and from post-Renaissance \
-                            neologisms to its status as a global lingua \
-                            franca, the English language boasts a \
-                            fascinating history and development. Despite \
-                            its origins as a West Germanic language, over \
-                            two-thirds of the English lexicon consists of \
-                            Romance vocabulary, mainly from French and \
-                            Latin, with signiciant influence from Old \
-                            Norse, Greek, and many others as well."} />
-
-        <Description text={"Search for any word in the English language \
-                            and view a visualization of various \
-                            linguistic data surrounding its etymology \
-                            and other attributes."}/>
+        </div>
     </>
     )
 }
