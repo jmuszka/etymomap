@@ -3,7 +3,7 @@
 import React, {useContext, useEffect, useState} from 'react';
 import { ctx } from './GlobeBackgroundProvider';
 import ReactSearchBox from "react-search-box";
-import Button from '@mui/material/Button';
+// import Button from '@mui/material/Button';
 
 function UserInput() {
     const {setCurrentCountryName} = useContext(ctx); // Current country that is selected
@@ -56,11 +56,11 @@ function UserInput() {
                 style={{display: 'block-inline'}}
                 disabled="true"/>
         </div>
-        <div className="button"><Button
+        {/* <div className="button"><Button
             id='selectBtn'
             variant="contained"
             onClick={selectBtnClick}
-        >Select</Button></div>
+        >Select</Button></div> */}
         <p>This website is currently in development. However, in the meantime you can play around with this widget that will be a core feature of the finished application.</p>
     </div>
     )
