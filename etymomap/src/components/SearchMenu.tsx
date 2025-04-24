@@ -1,69 +1,62 @@
 // User can search for a word in the Merriam-Webster dictionary
 
-import React, {useState} from 'react';
+import React from 'react';
 import Button from '@mui/material/Button';
 import {Dictionary} from '../Merriam Webster/Dictionary';
-import {Word} from '../Merriam Webster/Word'
+import { WordOption } from '../WordOption';
 import AsyncSelect from 'react-select/async';
 import type { GroupBase, OptionsOrGroups } from 'react-select';
 
+// Functions to change the page and select a new word
 interface Props {
     setActivePage: React.Dispatch<React.SetStateAction<string>>;
-    setCurrentWord: React.Dispatch<React.SetStateAction<Word>>;
+    setCurrentWordOption: React.Dispatch<React.SetStateAction<WordOption>>;
 }
 
-interface ClickOption {
-    value: string;
-    label: string;
-}
-
-interface SearchOption {
-    key: string;
-    word: Word;
-}
-
-function SearchMenu({setActivePage, setCurrentWord}: Props) {
-
-    const [searchOptions, setSearchOptions]: [SearchOption[], React.Dispatch<React.SetStateAction<SearchOption[]>>] = useState([]);
+function SearchMenu({setActivePage, setCurrentWordOption}: Props) {
 
     // To search words in the merriam webster dictionary
     const d = new Dictionary(process.env.REACT_APP_MERRIAM_WEBSTER_API_KEY);
 
-
+    // Query the Merriam-Webster API for matching words
+    // Dictionary returns multiple Word objects if that word is used in multiple parts of speech
+    // Each word object can contain multiple possible definitions
+    // Goal here is to separate each definition and display all of them to the user
     const searchDictionary = async (query) => {
-        let m;
+        let m; // Store word object
 
         try {
-            m = await d.search(query);
+            m = await d.search(query); // Search dictionary for word
         } catch (err) {
             console.log("No such word");
             return;
         }
 
-        let options: ClickOption[] = [];
-        let searchResults: SearchOption[] = [];
-        for (let i = 0; i < m.length; i++) {
-            options.push({
-                value: m[i].toString()+i,
-                label: m[i].toString() + " - " + m[i].getDefinitions()[0].substring(0, 21 - m[i].toString().length)
-            });
-            searchResults.push({
-                key: m[i].toString()+i,
-                word: m[i]
-            });
-        }
+        // Separate search results into 1:1 pair for word:definition
+        let results: WordOption[] = [];
+        m.map((item, i) => {
+            item.getDefinitions().map((def, j) => {
+                results.push({
+                    word: item.toString(),
+                    definition: def,
+                    wordIndex: i, // position of word in list of word objects
+                    definitionIndex: j, // position of definition in word object
+                    ref: m, // reference to the list of word objects
+                });
+        })})
+    
+        // Convert data into format for search bar
+        results.map((result, i) => {
+            result.value = result.word+i; // key to search for (append index to make unique)
+            result.label = result.definition; //TODO: truncate
+        });
 
-        setSearchOptions(searchResults);
-        return options
+        return results;
     }
 
+    // Change the current word when user clicks an option from search menu
     const selectNewWord = (selection) => {
-        for (let i = 0; i < searchOptions.length; i++) {
-            if (selection && searchOptions[i].key === selection.value) {
-                setCurrentWord(searchOptions[i].word);
-                break;
-            }
-        }
+        setCurrentWordOption(selection);
     }
 
     return(
@@ -73,7 +66,7 @@ function SearchMenu({setActivePage, setCurrentWord}: Props) {
                 <AsyncSelect 
                     loadOptions={searchDictionary as (
                         inputValue: string
-                    ) => Promise<OptionsOrGroups<ClickOption, GroupBase<ClickOption>>>}
+                    ) => Promise<OptionsOrGroups<WordOption, GroupBase<WordOption>>>}
                     components={{
                         DropdownIndicator: () => null,
                         IndicatorSeparator: () => null
@@ -84,15 +77,15 @@ function SearchMenu({setActivePage, setCurrentWord}: Props) {
                 />
             </div>
 
-        <div className="inline-block relative">
-            <Button
-                    id='selectBtn'
-                    variant="contained"
-                    style={{position: "relative", top: "-1.5px"}}
-                    onClick={() => {setActivePage("word")}}>
-                Search
-            </Button>
-        </div>
+            <div className="inline-block relative">
+                <Button
+                        id='selectBtn'
+                        variant="contained"
+                        style={{position: "relative", top: "-1.5px"}}
+                        onClick={() => {setActivePage("word")}}>
+                    Search
+                </Button>
+            </div>
         </div>
     </>
     )

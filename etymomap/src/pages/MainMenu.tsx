@@ -1,19 +1,26 @@
 import React from 'react'
 import SearchMenu from '../components/SearchMenu'
 import Description from '../components/Description'
-import {Word} from '../Merriam Webster/Word'
+import { WordOption } from '../WordOption'
 
+// Functions to change the page and select a new word
 interface Props {
     setActivePage: React.Dispatch<React.SetStateAction<string>>;
-    setCurrentWord: React.Dispatch<React.SetStateAction<Word>>;
+    setCurrentWordOption: React.Dispatch<React.SetStateAction<WordOption>>;
 }
 
-const MainMenu = ({setActivePage, setCurrentWord}: Props) => {
+const MainMenu = ({setActivePage, setCurrentWordOption}: Props) => {
 
     return (
         <div className="flex flex-col items-center">
-            <div className="text-4xl font-bold my-5 select-none text-shadow text-shadow-gray-500">EtymoMap</div>
-            <SearchMenu setActivePage={setActivePage} setCurrentWord={setCurrentWord}/>
+            <div className="text-4xl font-bold my-5 select-none text-shadow text-shadow-gray-500">
+                EtymoMap
+            </div>
+
+            <SearchMenu 
+                setActivePage={setActivePage} 
+                setCurrentWordOption={setCurrentWordOption}
+            />
 
             <Description text={"From the viking invasions to the Norman-French \
                             conquest in 1066, and from post-Renaissance \
@@ -24,12 +31,15 @@ const MainMenu = ({setActivePage, setCurrentWord}: Props) => {
                             two-thirds of the English lexicon consists of \
                             Romance vocabulary, mainly from French and \
                             Latin, with significiant influence from Old \
-                            Norse, Greek, and many others as well."} />
+                            Norse, Greek, and many others as well."} 
+            />
 
-        <Description text={"Search for any word in the English language \
-                            and view a visualization of various \
-                            linguistic data surrounding its etymology \
-                            and other attributes."}/>
+            <Description text={"Search for any word in the English language \
+                                and view a visualization of various \
+                                linguistic data surrounding its etymology \
+                                and other attributes."}
+            />
+
         </div>
     );
 }

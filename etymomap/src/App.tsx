@@ -6,6 +6,7 @@ import {GlobeBackgroundProvider} from './components/GlobeBackgroundProvider.jsx'
 import MainMenu from './pages/MainMenu'
 import WordPage from './pages/WordPage'
 import {Word} from './Merriam Webster/Word'
+import {WordOption} from './WordOption'
 
 // Dictionary data structure
 interface Dictionary {
@@ -18,12 +19,12 @@ const App: React.FC = () => {
   const [activePage, setActivePage]: [string, React.Dispatch<React.SetStateAction<string>>] = useState("");
   
   // Keep track of currently-selected word
-  const [currentWord, setCurrentWord]: [Word, React.Dispatch<React.SetStateAction<Word>>] = useState(new Word({}));
+  const [currentWordOption, setCurrentWordOption]: [WordOption, React.Dispatch<React.SetStateAction<WordOption>>] = useState({word: "", definition: "", wordIndex: -1, definitionIndex: -1, ref: new Word({}), value: "", label: ""});
 
   // Store all the available pages to switch from
   const PAGES: Dictionary  = {
-    "main": <MainMenu setActivePage={setActivePage} setCurrentWord={setCurrentWord}/>,
-    "word": <WordPage setActivePage={setActivePage} currentWord={currentWord}/>
+    "main": <MainMenu setActivePage={setActivePage} setCurrentWordOption={setCurrentWordOption}/>,
+    "word": <WordPage setActivePage={setActivePage} currentWordOption={currentWordOption}/>
   };
 
   // On app load
@@ -34,26 +35,27 @@ const App: React.FC = () => {
   return(
     <>
 
-    <GlobeBackgroundProvider>
-      <GlobeBackground/>
-    </GlobeBackgroundProvider>
+    {/* Background */}
+      <GlobeBackgroundProvider>
+        <GlobeBackground/>
+      </GlobeBackgroundProvider>
 
-    <div className="fixed w-full h-full p-2 lg:px-[18vw] py-12 overflow-scroll">
-      <div className="
-          bg-[#88888844]
-          rounded-2xl
-          p-5
-          lg:p-10
+    {/* Content */}
+      <div className="fixed w-full h-full p-2 lg:px-[18vw] py-12 overflow-scroll">
+        <div className="
+            bg-[#88888844]
+            rounded-2xl
+            p-5
+            lg:p-10
 
-          text-center
-          text-[#223333]
-          font-['Trebuchet MS', sans-serif]
+            text-center
+            text-[#223333]
+            font-['Trebuchet MS', sans-serif]
 
-          min-h-full
-      ">
-        {PAGES[activePage]}
+            min-h-full">
+          {PAGES[activePage]}
+        </div>
       </div>
-    </div>
 
     </>
   );
