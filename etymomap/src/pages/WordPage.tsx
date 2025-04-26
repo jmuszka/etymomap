@@ -1,4 +1,5 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useContext } from 'react'
+import {ctx} from '../components/GlobeBackgroundProvider'
 import { WordOption } from '../WordOption'
 import {EtymologyBot} from '../OpenAI/EtymologyBot.ts';
 import BackButton from '../components/BackButton'
@@ -17,16 +18,92 @@ const WordPage = ({setActivePage, currentWordOption}: Props) => {
     const [definition, setDefinition]: [string, React.Dispatch<React.SetStateAction<string>>] = useState(currentWordOption.definition);
     const [etymology, setEtymology]: [string, React.Dispatch<React.SetStateAction<string>>] = useState(currentWordOption.ref[currentWordOption.wordIndex].getEtymology());
 
+    const {toggleFocus} = useContext(ctx); // Toggle hovering
+    // const [countries, setCountries]: [{}, React.Dispatch<React.SetStateAction<{}>>] = useState();
+
+    const countries = {
+        "Middle French":[
+            "France"
+        ],
+        "Latin":[
+            "Italy",
+            "France",
+            "Spain",
+            "Portugal",
+            "Romania"
+        ],
+        "Middle English":[
+            "United Kingdom"
+        ],
+        "Old English":[
+            "United Kingdom"
+        ],
+        "Greek":[
+            "Greece"
+        ],
+        "Anglo-French":[
+            "France"
+        ],
+        "Old Dutch":[
+            "Netherlands"
+        ],
+        "Old High German":[
+            "Germany"
+        ],
+        "Middle High German":[
+            "Germany"
+        ],
+        "Sanskrit":[
+            "Syria"
+        ],
+        "Gothic":[
+            "Sweden",
+            "Denmark",
+            "Germany",
+            "Poland"
+        ],
+        "Old Norse":[
+            "Sweden",
+            "Norway",
+            "Denmark",
+            "Iceland"
+        ],
+        "Avestan":[
+            "Iran"
+        ],
+        "Italian":[
+            "Italy"
+        ]
+        }
+
     useEffect(() => {
-        runGptModel();
+        // toggleFocus(["United Kingdom", "Germany", "Greece"]);
+
+        runGptModel()
     }, []);
 
+    const convertLang = (language) => {
+        return countries[language];
+    }
+
     const runGptModel = async () => {
-        console.log("here");
         const client = new EtymologyBot(process.env.REACT_APP_OPENAI_API_KEY);
 
+        // Get LLM to process languages into neat, comma-separated list
         let gptList = await client.processEtymologyIntoList(etymology);
-        setEtymology(gptList);
+        setEtymology(gptList); // Update component
+
+        // Get corresponding countries of origin from the languages
+        let languages = gptList.replace(/(, )/g, ",").split(",")
+        let countriesOfOrigin: string[] = [];
+        for (let i = 0; i < languages.length; i++) {
+            let results = convertLang(languages[i]);
+            for (let j = 0; j < results.length; j++)
+                countriesOfOrigin.push(results[j]);
+        }
+
+        // Hover over those countries
+        toggleFocus(Array.from(new Set(countriesOfOrigin)));
 
         // If there is weird punctuation in the definition, semantically clean it
         if (definition!.match(/[\/#!$%\^&\*;:{}=\-_`~—]/))
@@ -35,7 +112,7 @@ const WordPage = ({setActivePage, currentWordOption}: Props) => {
 
     return (
         <>
-            <BackButton setActivePage={setActivePage}/>
+            <BackButton setActivePage={setActivePage} toggleFocus={toggleFocus}/>
 
             <h1 className="font-bold text-2xl">{word}</h1><br/>
             <Description text={`Definition: ${definition}`}/>

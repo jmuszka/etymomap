@@ -4,11 +4,13 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 interface Props {
     setActivePage: React.Dispatch<React.SetStateAction<string>>;
+    toggleFocus?: (countries: string[]) => void;
 }
 
-const BackButton = ({setActivePage}: Props) => {
+const BackButton = ({setActivePage, toggleFocus}: Props) => {
 
     const returnHome = () => {
+        if (toggleFocus) toggleFocus([]);
         setActivePage("main");
     }
 

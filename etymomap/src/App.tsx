@@ -38,9 +38,8 @@ const App: React.FC = () => {
     {/* Background */}
       <GlobeBackgroundProvider>
         <GlobeBackground/>
-      </GlobeBackgroundProvider>
 
-    {/* Content */}
+        {/* Content */}
       <div className="fixed w-full h-full p-2 lg:px-[18vw] py-12 overflow-scroll">
         <div className="
             bg-[#88888844]
@@ -56,6 +55,9 @@ const App: React.FC = () => {
           {PAGES[activePage]}
         </div>
       </div>
+      </GlobeBackgroundProvider>
+
+    
 
     </>
   );
