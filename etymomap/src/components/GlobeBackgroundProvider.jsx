@@ -27,9 +27,7 @@ export const GlobeBackgroundProvider = ({children}) => {
 
     // Initialization
     useEffect(() => {
-        // Load data
-        fetch('countries.geojson').then(res => res.json()).then(setCountries);
-        fetch('coordinates.json').then(res => res.json()).then(setLocations);
+        
 
         globeEl.current.controls().autoRotate = true;
         globeEl.current.controls().autoRotateSpeed = ROTATION_SPEED;
@@ -40,15 +38,26 @@ export const GlobeBackgroundProvider = ({children}) => {
             lat: DEFAULT_LATITUDE, 
             lng: DEFAULT_LONGITUDE, 
             altitude: DEFAULT_ALTITUDE });
+
+        // Load data
+        fetch('countries.geojson').then(res => res.json()).then(setCountries);
+        fetch('coordinates.json').then(res => res.json()).then(setLocations);
     }, []);
 
 
     // Toggle between spinning globe or hovering over a country
     const toggleFocus = (countryName) => {
-        const location = getCoordinatesByName(countryName);
+
+        // Compute average coordinates between all selected countries
+        let location = {latitude: 0, longitude: 0}
+        countryName.map((country) => {
+            location.latitude += getCoordinatesByName(country).latitude / countryName.length;
+            location.longitude += getCoordinatesByName(country).longitude / countryName.length;
+        })
+
         setCurrentCountryName(countryName)
 
-        if (!location) return // do nothing if country does not exist
+        if (location.latitude == 0 && location.longitude == 0) return // do nothing if country does not exist
 
         // If not currently focused, focus
         if (!focus) {

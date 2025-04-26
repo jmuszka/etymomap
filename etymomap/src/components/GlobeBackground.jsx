@@ -10,13 +10,14 @@ const HIGHLIGHT_COLOR = "#421854"; // Highlighted country color
 function GlobeBackground() {
     const {globeEl} = useContext(ctx); // Globe.gl object reference
     const {countries} = useContext(ctx); // Country data
+    const  {toggleFocus} = useContext(ctx);
     const {getCurrentCountryName, getFocusValue} = useContext(ctx); // Currently-selected country
 
 
     // Determine which color to paint a country
     const colorCountry = (d) => {
         // If country is selected, use highlight color, otherwise use default color
-        return d.properties.SOVEREIGNT===getCurrentCountryName() && getFocusValue() ? HIGHLIGHT_COLOR : DEFAULT_COLOR;
+        return getCurrentCountryName().includes(d.properties.SOVEREIGNT) && getFocusValue() ? HIGHLIGHT_COLOR : DEFAULT_COLOR;
     }
 
 
