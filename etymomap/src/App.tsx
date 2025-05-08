@@ -21,10 +21,18 @@ const App: React.FC = () => {
   // Keep track of currently-selected word
   const [currentWordOption, setCurrentWordOption]: [WordOption, React.Dispatch<React.SetStateAction<WordOption>>] = useState({word: "", definition: "", wordIndex: -1, definitionIndex: -1, ref: new Word({}), value: "", label: ""});
 
+  const [languages, setLanguages] = useState({});
+
+  useEffect(() => {
+    fetch("languages.json")
+    .then(res => res.json())
+    .then(setLanguages)
+  }, [])
+
   // Store all the available pages to switch from
   const PAGES: Dictionary  = {
     "main": <MainMenu setActivePage={setActivePage} setCurrentWordOption={setCurrentWordOption}/>,
-    "word": <WordPage setActivePage={setActivePage} currentWordOption={currentWordOption}/>
+    "word": <WordPage setActivePage={setActivePage} currentWordOption={currentWordOption} countries={languages}/>
   };
 
   // On app load

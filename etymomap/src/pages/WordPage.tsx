@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useContext } from 'react'
+import React, { useState, useEffect, useContext, useLayoutEffect } from 'react'
 import {ctx} from '../components/GlobeBackgroundProvider'
 import { WordOption } from '../WordOption'
 import {EtymologyBot} from '../OpenAI/EtymologyBot.ts';
@@ -9,9 +9,10 @@ import Description from '../components/Description'
 interface Props {
     setActivePage: React.Dispatch<React.SetStateAction<string>>;
     currentWordOption: WordOption;
+    countries: {};
 }
 
-const WordPage = ({setActivePage, currentWordOption}: Props) => {
+const WordPage = ({setActivePage, currentWordOption, countries}: Props) => {
 
     // Store the word and its definition as strings for quick reference
     const [word, _]: [string, React.Dispatch<React.SetStateAction<string>>] = useState(currentWordOption.word) // Store word for quick access
@@ -19,66 +20,8 @@ const WordPage = ({setActivePage, currentWordOption}: Props) => {
     const [etymology, setEtymology]: [string, React.Dispatch<React.SetStateAction<string>>] = useState(currentWordOption.ref[currentWordOption.wordIndex].getEtymology());
 
     const {toggleFocus} = useContext(ctx); // Toggle hovering
-    // const [countries, setCountries]: [{}, React.Dispatch<React.SetStateAction<{}>>] = useState();
-
-    const countries = {
-        "Middle French":[
-            "France"
-        ],
-        "Latin":[
-            "Italy",
-            "France",
-            "Spain",
-            "Portugal",
-            "Romania"
-        ],
-        "Middle English":[
-            "United Kingdom"
-        ],
-        "Old English":[
-            "United Kingdom"
-        ],
-        "Greek":[
-            "Greece"
-        ],
-        "Anglo-French":[
-            "France"
-        ],
-        "Old Dutch":[
-            "Netherlands"
-        ],
-        "Old High German":[
-            "Germany"
-        ],
-        "Middle High German":[
-            "Germany"
-        ],
-        "Sanskrit":[
-            "Syria"
-        ],
-        "Gothic":[
-            "Sweden",
-            "Denmark",
-            "Germany",
-            "Poland"
-        ],
-        "Old Norse":[
-            "Sweden",
-            "Norway",
-            "Denmark",
-            "Iceland"
-        ],
-        "Avestan":[
-            "Iran"
-        ],
-        "Italian":[
-            "Italy"
-        ]
-        }
 
     useEffect(() => {
-        // toggleFocus(["United Kingdom", "Germany", "Greece"]);
-
         runGptModel()
     }, []);
 
