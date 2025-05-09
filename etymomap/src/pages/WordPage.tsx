@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useContext, useLayoutEffect } from 'react'
-import {ctx} from '../components/GlobeBackgroundProvider'
-import { WordOption } from '../WordOption'
+import {ctx} from '../components/GlobeBackgroundProvider.jsx'
+import { WordOption } from '../WordOption.tsx'
 import {EtymologyBot} from '../OpenAI/EtymologyBot.ts';
-import BackButton from '../components/BackButton'
-import Description from '../components/Description'
+import BackButton from '../components/BackButton.tsx'
+import Description from '../components/Description.tsx'
 
 // Function to change the page, and reference to current selected word
 interface Props {

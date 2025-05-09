@@ -1,8 +1,8 @@
 // Serve application
 
 import React, { useState, useEffect } from 'react';
-import GlobeBackground from './components/GlobeBackground.jsx'
-import {GlobeBackgroundProvider} from './components/GlobeBackgroundProvider.jsx'
+import GlobeBackground from './components/GlobeBackground'
+import {GlobeBackgroundProvider} from './components/GlobeBackgroundProvider'
 import MainMenu from './pages/MainMenu'
 import WordPage from './pages/WordPage'
 import {Word} from './Merriam Webster/Word'
