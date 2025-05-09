@@ -27,6 +27,8 @@ const App: React.FC = () => {
     fetch("languages.json")
     .then(res => res.json())
     .then(setLanguages)
+
+    fetch("http://localhost:5000")
   }, [])
 
   // Store all the available pages to switch from
