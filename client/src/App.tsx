@@ -7,6 +7,7 @@ import MainMenu from './pages/MainMenu'
 import WordPage from './pages/WordPage'
 import {Word} from './Merriam Webster/Word'
 import {WordOption} from './WordOption'
+import preval from 'preval.macro'
 
 // Dictionary data structure
 interface Dictionary {
@@ -64,6 +65,9 @@ const App: React.FC = () => {
             min-h-full">
           {PAGES[activePage]}
         </div>
+
+        {/* Build date */}
+        <div className="fixed bottom-0 right-2 text-slate-600 select-none">{preval`module.exports = new Date().toLocaleString('en-CA').split(',')[0];`}</div>
       </div>
       </GlobeBackgroundProvider>
 
