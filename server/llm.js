@@ -58,7 +58,7 @@ const simplifyDefinition = async(input) => {
               {
                 type: 'text',
                 text: `I am going to provide you a definition I got from a dictionary API.
-                      Sometimes this API spits out the definition with weird formatting or sentence fragments.
+                      Sometimes this API spits out the definition with weird formatting or sentence fragments. There should be a period at the end.
                       Give me back a simplified, streamlined version of the definition without losing details and remove unnecessary punctuation:
 
                         ` + input
@@ -73,4 +73,4 @@ const simplifyDefinition = async(input) => {
       return chatCompletion.choices[0].message.content;
 }
 
-module.exports =  {processEtymologyIntoList};
+module.exports =  {processEtymologyIntoList, simplifyDefinition};

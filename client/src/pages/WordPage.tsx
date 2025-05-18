@@ -149,9 +149,21 @@ const WordPage = ({setActivePage, currentWordOption}: Props) => {
 
         })
 
-        // // If there is weird punctuation in the definition, semantically clean it
-        // if (definition!.match(/[\/#!$%\^&\*;:{}=\-_`~—]/))
-        //     setDefinition(await client.simplifyDefinition(definition));
+        // Make sure string starts with a capital letter and ends in a period
+        if (! definition!.match(/\.$/)) setDefinition(definition.substring(0,1).toUpperCase() + definition.substring(1, definition.length) + ".")
+        else setDefinition(definition.substring(0,1).toUpperCase() + definition.substring(1, definition.length))
+
+        // If there is weird punctuation in the definition, semantically clean it
+        if (definition!.match(/[\/#!$%\^&\*;:{}=\-_`~—]/)) {
+            await fetch("http://localhost:5000/api/openai/definition", {
+                method: "POST",
+                headers: { "Content-Type": "application/json"},
+                body: JSON.stringify({"definition": definition})
+            })
+            .then(res => res.json())
+            .then(data => data.definition)
+            .then((definition) => {setDefinition(definition)})
+        }
     }
 
     return (

@@ -2,7 +2,7 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const cors = require('cors')
 
-const {processEtymologyIntoList} = require("./llm.js")
+const {processEtymologyIntoList, simplifyDefinition} = require("./llm.js")
 
 const app = express()
 app.use(cors())
@@ -21,6 +21,16 @@ app.post('/api/openai/etymology', async (req, res) => {
   const response = await processEtymologyIntoList(etymologyList)
 
   res.send({list: response}).status(200)
+})
+
+app.post('/api/openai/definition', async (req, res) => {
+
+  const {definition} = req.body
+
+  const response = await simplifyDefinition(definition)
+
+  res.send({definition: response}).status(200)
+
 })
 
 app.listen(port, () => {
