@@ -5,24 +5,22 @@ import {DictionaryError} from './DictionaryError.ts';
  * Wrapper class to interface the Merriam-Webster API
  */
 export class Dictionary {
-    private readonly API_KEY: String;
 
     /**
      * Store API key
      * @param key Merriam-Webster API key
      */
-    public constructor(key: String|undefined) {
-        if (key) this.API_KEY = key;
-    }
+    public constructor() {}
 
     /**
      * Search the Merriam-Webster database for a word
      * @param word word to search up in dictionary
      * @returns {Word[]} list of words that match query, with associated information
      */
-    public async search(word: String) {
+    public async search(word: string) {
 
-        const results = await this.getJSON(`https://dictionaryapi.com/api/v3/references/collegiate/json/${word}?key=${this.API_KEY}`);
+        const results = await this.getJSON(word);
+        console.log(results)
 
         // Get only words that strict match given string
         
@@ -45,11 +43,12 @@ export class Dictionary {
      * @param url JSON request URL
      * @returns {object}
      */
-    private async getJSON(url: string): Promise<any> {
-        const response = await fetch(url);
-        if (!response.ok) {
-            throw new Error(response.statusText); // Throw an error for unsuccessful responses
-        }
-        return await response.json(); // Return the parsed JSON data
+    private async getJSON(word: string): Promise<any> {
+        return await fetch('http://localhost:5000/api/mw/search', {
+            method: "POST",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify({"word": word})
+        })
+        .then(res => res.json())
     }
 }

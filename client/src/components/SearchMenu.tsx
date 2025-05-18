@@ -16,7 +16,7 @@ interface Props {
 function SearchMenu({setActivePage, setCurrentWordOption}: Props) {
 
     // To search words in the merriam webster dictionary
-    const d = new Dictionary(process.env.REACT_APP_MERRIAM_WEBSTER_API_KEY);
+    const d = new Dictionary();
 
     // Query the Merriam-Webster API for matching words
     // Dictionary returns multiple Word objects if that word is used in multiple parts of speech
