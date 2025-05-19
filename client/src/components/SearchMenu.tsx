@@ -46,9 +46,10 @@ function SearchMenu({setActivePage, setCurrentWordOption}: Props) {
         })})
     
         // Convert data into format for search bar
+        const MAX_LENGTH = 24;
         results.map((result, i) => {
             result.value = result.word+i; // key to search for (append index to make unique)
-            result.label = result.definition; //TODO: truncate
+            result.label = result.definition.length <= MAX_LENGTH ? result.definition : `${result.definition.substring(0, MAX_LENGTH)}...`; //TODO: truncate
         });
 
         // Remove words that dont have this.et defined (TODO: use an API call to compensate instead)
@@ -68,7 +69,7 @@ function SearchMenu({setActivePage, setCurrentWordOption}: Props) {
     return(
     <>
         <div className="space-x-1">
-            <div className="w-[240px] inline-block">
+            <div className="w-[240px] inline-block text-left">
                 <AsyncSelect 
                     loadOptions={searchDictionary as (
                         inputValue: string
