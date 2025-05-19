@@ -102,6 +102,9 @@ const WordPage = ({setActivePage, currentWordOption}: Props) => {
             "Bosnia and Herzegovina",
             "Croatia",
             "Bulgaria"
+        ],
+        "Old Frisian": [
+            "Netherlands"
         ]
         }
 

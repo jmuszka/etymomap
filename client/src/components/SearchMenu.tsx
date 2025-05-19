@@ -51,6 +51,12 @@ function SearchMenu({setActivePage, setCurrentWordOption}: Props) {
             result.label = result.definition; //TODO: truncate
         });
 
+        // Remove words that dont have this.et defined (TODO: use an API call to compensate instead)
+        for (let i = 0; i < results.length; i++) {
+            if (!results[i].ref[0].data.et) 
+                results.splice(i--, 1)
+        }
+
         return results;
     }
 
