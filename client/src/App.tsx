@@ -67,7 +67,7 @@ const App: React.FC = () => {
         </div>
 
         {/* Build date */}
-        <div className="fixed bottom-0 right-2 text-slate-600 select-none">{preval`module.exports = new Date().toLocaleString('en-CA').split(',')[0];`}</div>
+        <div className="fixed bottom-0 right-2 text-slate-600 select-none"><sub>{preval`module.exports = new Date().toLocaleString('en-CA').split(',')[0];`}</sub></div>
       </div>
       </GlobeBackgroundProvider>
 

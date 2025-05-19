@@ -14,7 +14,8 @@ const MainMenu = ({setActivePage, setCurrentWordOption}: Props) => {
     return (
         <div className="flex flex-col items-center">
             <div className="text-4xl font-bold my-5 select-none text-shadow text-shadow-gray-500">
-                EtymoMap
+                <img src="logo.png" className="inline h-20 pointer-events-none"/>
+                 EtymoMap
             </div>
 
             <SearchMenu 
