@@ -21,7 +21,7 @@ export const GlobeBackgroundProvider = ({children}) => {
     const DEFAULT_LONGITUDE = 0.0;
     const DEFAULT_ALTITUDE = 1.2;
 
-    const FOCUSED_ALTITUDE = 0.5;
+    const FOCUSED_ALTITUDE = 0.6;
     const TRANSITION_TIME = 1000; //ms
     const ROTATION_SPEED = 0.8;
 
@@ -51,8 +51,12 @@ export const GlobeBackgroundProvider = ({children}) => {
         // Compute average coordinates between all selected countries
         let location = {latitude: 0, longitude: 0}
         countryName.map((country) => {
-            location.latitude += getCoordinatesByName(country).latitude / countryName.length;
-            location.longitude += getCoordinatesByName(country).longitude / countryName.length;
+            const coords = getCoordinatesByName(country)
+            if (coords) {
+                location.latitude += coords.latitude / countryName.length;
+                location.longitude += coords.longitude / countryName.length;
+            } else { console.error(country) }
+                    
         })
 
         setCurrentCountryName(countryName)

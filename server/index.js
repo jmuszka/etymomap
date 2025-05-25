@@ -3,7 +3,7 @@ const bodyParser = require('body-parser')
 const cors = require('cors')
 require('dotenv').config()
 
-const {processEtymologyIntoList, simplifyDefinition} = require("./llm.js")
+const {processEtymologyIntoList, simplifyDefinition, getCountriesFromLanguage} = require("./llm.js")
 
 const app = express()
 app.use(cors())
@@ -31,6 +31,15 @@ app.post('/api/openai/definition', async (req, res) => {
   const response = await simplifyDefinition(definition)
 
   res.send({definition: response}).status(200)
+
+})
+
+app.post('/api/openai/countries', async (req, res) => {
+  const {language} = req.body
+
+  const response = await getCountriesFromLanguage(language)
+
+  res.send({countries: response}).status(200)
 
 })
 

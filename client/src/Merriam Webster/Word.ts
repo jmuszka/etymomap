@@ -38,7 +38,7 @@ export class Word {
     }
 
     public getEtymology() {
-        return this.data.et[0][1];
+        if (this.data.et) return this.data.et[0][1];
     }
 
     public getDefinitions() {

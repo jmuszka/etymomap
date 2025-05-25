@@ -105,6 +105,30 @@ const WordPage = ({ setActivePage, currentWordOption }: Props) => {
         ],
         "Old Frisian": [
             "Netherlands"
+        ],
+        "Arabic": [
+            "Saudi Arabia",
+            "Iraq",
+            "Qatar",
+            "United Arab Emirates",
+            "Oman",
+            "Yemen"
+        ],
+        "German": [
+            "Germany",
+            "Austria",
+            "Switzerland"
+        ],
+        "Spanish": [
+            "Spain"
+        ],
+        "French": [
+            "France",
+            "Switzerland",
+            "Belgium"
+        ],
+        "Czech": [
+            "Czechia"
         ]
     }
 
@@ -133,7 +157,7 @@ const WordPage = ({ setActivePage, currentWordOption }: Props) => {
         })
             .then(res => res.json())
             .then(data => data.list)
-            .then((gptList) => {
+            .then(async (gptList) => {
 
                 setEtymology(gptList);
 
@@ -143,8 +167,26 @@ const WordPage = ({ setActivePage, currentWordOption }: Props) => {
                 for (let i = 0; i < languages.length; i++) {
                     console.log(languages[i])
                     let results = convertLang(languages[i]);
-                    for (let j = 0; j < results.length; j++)
-                        countriesOfOrigin.push(results[j]);
+
+                    if (results) {
+                        for (let j = 0; j < results.length; j++)
+                            countriesOfOrigin.push(results[j]);
+                    } else {
+                        await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/openai/countries`, {
+                            method: "POST",
+                            headers: {
+                                "Content-Type": "application/json"
+                            },
+                            body: JSON.stringify({
+                                "language": `"${languages[i]}"`
+                            })
+                        })
+                        .then(res => res.json())
+                        .then(data => data.countries.split(","))
+                        .then((countries) => {
+                            countriesOfOrigin = countriesOfOrigin.concat(countries)
+                        })
+                    }
                 }
 
                 // Hover over those countries
@@ -158,7 +200,7 @@ const WordPage = ({ setActivePage, currentWordOption }: Props) => {
 
         // If there is weird punctuation in the definition, semantically clean it
         if (definition!.match(/[\/#!$%\^&\*;:{}=\-_`~—]/)) {
-            await fetch(`${process.env.REACT_BACKEND_URL}/api/openai/definition`, {
+            await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/openai/definition`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ "definition": definition })
