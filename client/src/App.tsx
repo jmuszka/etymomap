@@ -5,9 +5,9 @@ import GlobeBackground from './components/GlobeBackground'
 import {GlobeBackgroundProvider} from './components/GlobeBackgroundProvider'
 import MainMenu from './pages/MainMenu'
 import WordPage from './pages/WordPage'
+import BuildVersion from './components/BuildVersion'
 import {Word} from './Merriam Webster/Word'
 import {WordOption} from './WordOption'
-import preval from 'preval.macro'
 
 // Dictionary data structure
 interface Dictionary {
@@ -68,7 +68,7 @@ const App: React.FC = () => {
           {PAGES[activePage]}
 
           {/* Version/build number */}
-          <div className="absolute left-0 bottom-0 w-full text-center lg:text-right text-sm opacity-50 px-4">{`v${process.env.REACT_APP_VERSION}.${preval`module.exports = new Date().toLocaleString("en-CA").substring(0,10).replaceAll("-", ".");`}`}</div>
+          <BuildVersion/>
         </div>
       </div>
       </GlobeBackgroundProvider>

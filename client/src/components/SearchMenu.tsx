@@ -69,7 +69,7 @@ function SearchMenu({setActivePage, setCurrentWordOption}: Props) {
     return(
     <>
         <div className="space-x-1">
-            <div className="w-[240px] inline-block text-left">
+            <div className="w-[240px] inline-block text-left select-none">
                 <AsyncSelect 
                     loadOptions={searchDictionary as (
                         inputValue: string
