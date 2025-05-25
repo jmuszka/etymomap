@@ -13,8 +13,10 @@ interface Props {
 const MainMenu = ({setActivePage, setCurrentWordOption}: Props) => {
 
     return (
-        <div className="flex flex-col relative items-center">
-            <div className="text-4xl font-bold my-5 select-none text-shadow text-shadow-gray-500">
+        <div className="flex flex-col items-center justify-center h-full text-center">
+
+            {/* Title */}
+            <div className="text-5xl font-bold select-none text-shadow text-shadow-gray-500 my-2">
                 <img src="logo.png" className="inline h-20 pointer-events-none"/>
                  EtymoMap
             </div>
@@ -40,6 +42,9 @@ const MainMenu = ({setActivePage, setCurrentWordOption}: Props) => {
                                 and view a visualization of various \
                                 linguistic data surrounding its etymology \
                                 and other attributes."}
+            />
+
+            <Description text={"(Suggestions? Contact me at joshmuszka67@gmail.com)"}
             />
         </div>
     );

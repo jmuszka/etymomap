@@ -51,21 +51,20 @@ const App: React.FC = () => {
         <GlobeBackground/>
 
         {/* Content */}
-      <div className="fixed w-full h-full p-2 lg:px-[18vw] py-12 overflow-scroll">
+      <div className="flex w-screen h-screen p-1 lg:py-[5%] lg:px-[20%]">
         <div className="
             bg-[#88888844]
             rounded-2xl
-            p-5
-            lg:p-10
 
-            text-center
             text-[#223333]
             font-['Trebuchet MS', sans-serif]
 
-            min-h-full
+            flex-1
             relative
             ">
-          {PAGES[activePage]}
+              <div className="flex-1 w-full h-full p-[4%] ">
+              {PAGES[activePage]}
+              </div>
 
           {/* Version/build number */}
           <BuildVersion/>

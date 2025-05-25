@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext, useLayoutEffect } from 'react'
-import {ctx} from '../components/GlobeBackgroundProvider.jsx'
+import { ctx } from '../components/GlobeBackgroundProvider.jsx'
 import { WordOption } from '../WordOption.tsx'
 // import {EtymologyBot} from '../OpenAI/EtymologyBot.ts';
 import BackButton from '../components/BackButton.tsx'
@@ -12,79 +12,79 @@ interface Props {
     countries: {};
 }
 
-const WordPage = ({setActivePage, currentWordOption}: Props) => {
+const WordPage = ({ setActivePage, currentWordOption }: Props) => {
 
     // Store the word and its definition as strings for quick reference
     const [word, _]: [string, React.Dispatch<React.SetStateAction<string>>] = useState(currentWordOption.word) // Store word for quick access
     const [definition, setDefinition]: [string, React.Dispatch<React.SetStateAction<string>>] = useState(currentWordOption.definition);
     const [etymology, setEtymology]: [string, React.Dispatch<React.SetStateAction<string>>] = useState(currentWordOption.ref[currentWordOption.wordIndex].getEtymology());
 
-    const {toggleFocus} = useContext(ctx); // Toggle hovering
+    const { toggleFocus } = useContext(ctx); // Toggle hovering
 
     const countries = {
-        "English":[
+        "English": [
             "United Kingdom"
         ],
-        "Middle French":[
+        "Middle French": [
             "France"
         ],
-        "Latin":[
+        "Latin": [
             "Italy",
             "France",
             "Spain",
             "Portugal",
             "Romania"
         ],
-        "Medieval Latin":[
+        "Medieval Latin": [
             "Italy",
             "France",
             "Spain",
             "Portugal",
             "Romania"
         ],
-        "Middle English":[
+        "Middle English": [
             "United Kingdom"
         ],
-        "Old English":[
+        "Old English": [
             "United Kingdom"
         ],
-        "Greek":[
+        "Greek": [
             "Greece"
         ],
-        "Late Greek":[
+        "Late Greek": [
             "Greece"
         ],
-        "Anglo-French":[
+        "Anglo-French": [
             "France"
         ],
-        "Old Dutch":[
+        "Old Dutch": [
             "Netherlands"
         ],
-        "Old High German":[
+        "Old High German": [
             "Germany"
         ],
-        "Middle High German":[
+        "Middle High German": [
             "Germany"
         ],
-        "Sanskrit":[
+        "Sanskrit": [
             "Syria"
         ],
-        "Gothic":[
+        "Gothic": [
             "Sweden",
             "Denmark",
             "Germany",
             "Poland"
         ],
-        "Old Norse":[
+        "Old Norse": [
             "Sweden",
             "Norway",
             "Denmark",
             "Iceland"
         ],
-        "Avestan":[
+        "Avestan": [
             "Iran"
         ],
-        "Italian":[
+        "Italian": [
             "Italy"
         ],
         "Old French": [
@@ -106,7 +106,7 @@ const WordPage = ({setActivePage, currentWordOption}: Props) => {
         "Old Frisian": [
             "Netherlands"
         ]
-        }
+    }
 
     useEffect(() => {
         runGptModel()
@@ -131,46 +131,46 @@ const WordPage = ({setActivePage, currentWordOption}: Props) => {
                 'etymologyList': etymology
             })
         })
-        .then(res => res.json())
-        .then(data => data.list)
-        .then((gptList) =>{
+            .then(res => res.json())
+            .then(data => data.list)
+            .then((gptList) => {
 
-            setEtymology(gptList);
+                setEtymology(gptList);
 
-            // Get corresponding countries of origin from the languages
-            let languages = gptList.replace(/(, )/g, ",").split(",")
-            let countriesOfOrigin: string[] = [];
-            for (let i = 0; i < languages.length; i++) {
-                console.log(languages[i])
-                let results = convertLang(languages[i]);
-                for (let j = 0; j < results.length; j++)
-                    countriesOfOrigin.push(results[j]);
-            }
+                // Get corresponding countries of origin from the languages
+                let languages = gptList.replace(/(, )/g, ",").split(",")
+                let countriesOfOrigin: string[] = [];
+                for (let i = 0; i < languages.length; i++) {
+                    console.log(languages[i])
+                    let results = convertLang(languages[i]);
+                    for (let j = 0; j < results.length; j++)
+                        countriesOfOrigin.push(results[j]);
+                }
 
-            // Hover over those countries
-            toggleFocus(Array.from(new Set(countriesOfOrigin)));
+                // Hover over those countries
+                toggleFocus(Array.from(new Set(countriesOfOrigin)));
 
-        })
+            })
 
         // Make sure string starts with a capital letter and ends in a period
-        if (! definition!.match(/\.$/)) setDefinition(definition.substring(0,1).toUpperCase() + definition.substring(1, definition.length) + ".")
-        else setDefinition(definition.substring(0,1).toUpperCase() + definition.substring(1, definition.length))
+        if (!definition!.match(/\.$/)) setDefinition(definition.substring(0, 1).toUpperCase() + definition.substring(1, definition.length) + ".")
+        else setDefinition(definition.substring(0, 1).toUpperCase() + definition.substring(1, definition.length))
 
         // If there is weird punctuation in the definition, semantically clean it
         if (definition!.match(/[\/#!$%\^&\*;:{}=\-_`~—]/)) {
             await fetch("http://localhost:5000/api/openai/definition", {
                 method: "POST",
-                headers: { "Content-Type": "application/json"},
-                body: JSON.stringify({"definition": definition})
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ "definition": definition })
             })
-            .then(res => res.json())
-            .then(data => data.definition)
-            .then((definition) => {setDefinition(definition)})
+                .then(res => res.json())
+                .then(data => data.definition)
+                .then((definition) => { setDefinition(definition) })
         }
     }
 
     return (
-        <>
+        <div className="flex flex-col text-center">
             <BackButton setActivePage={setActivePage} toggleFocus={toggleFocus}/>
 
             <h1 className="font-bold text-2xl">{word}</h1><br/>
@@ -178,9 +178,8 @@ const WordPage = ({setActivePage, currentWordOption}: Props) => {
             <Description text={`First use: ${currentWordOption.ref[currentWordOption.wordIndex].getFirstUse().replace(/{(.*?)}/, "").replace(/circa/, "")}`}/>
             <Description text={`${currentWordOption.ref[currentWordOption.wordIndex].getPartOfSpeech()}`}/>
             <Description text={`Origin: ${etymology}`}/>
-            
-                                                      
-        </>
+
+        </div>
     );
 }
 
