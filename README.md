@@ -1,5 +1,5 @@
 # EtymoMap
-AI-powered app to explore the etymology of the English language
+AI-powered app to explore the etymology of the English language.
 
 #### (IN DEVELOPMENT)
 
@@ -33,12 +33,12 @@ Visit [etymomap.com](https://etymomap.com) to use the app.
 
 Alternatively, you can host it yourself with the following steps:
 
-1. `git clone https://github.com/jmuszka/EtymoMap.git && cd EtymoMap/etymomap`
-2. `npm install`
-3. `npm start`
-4. Visit `localhost:3000` in your preferred browser.
-
-To run the project, you'll need to create a .env file as follows:
-- `cd .. `
-- `mv env.example .env`
-- And insert your OpenAI and Merriam-Webster API keys.
+1. `git clone https://github.com/jmuszka/etymomap.git && cd etymomap/`
+2. `npm i -g bun`
+3. `cd server/ && bun i`, followed by `bun run dev` to run the backend.
+> [!TIP]
+> Run `cp example.env .env` and add your API keys and which port you want the backend to run on.
+4. `cd client/ && bun i`, followed by `bun run dev` to run the frontend.
+> [!TIP]
+> Run `cp example.env .env` and add the URL that can access your backend.
+5. Visit `localhost:3000` in your preferred browser.
