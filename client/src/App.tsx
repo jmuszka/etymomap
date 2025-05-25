@@ -62,12 +62,14 @@ const App: React.FC = () => {
             text-[#223333]
             font-['Trebuchet MS', sans-serif]
 
-            min-h-full">
+            min-h-full
+            relative
+            ">
           {PAGES[activePage]}
-        </div>
 
-        {/* Build date */}
-        <div className="fixed bottom-0 right-2 text-slate-600 select-none"><sub>{preval`module.exports = new Date().toLocaleString('en-CA').split(',')[0];`}</sub></div>
+          {/* Version/build number */}
+          <div className="absolute left-0 bottom-0 w-full text-center lg:text-right text-sm opacity-50 px-4">{`v${process.env.REACT_APP_VERSION}.${preval`module.exports = new Date().toLocaleString("en-CA").substring(0,10).replaceAll("-", ".");`}`}</div>
+        </div>
       </div>
       </GlobeBackgroundProvider>
 

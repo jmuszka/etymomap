@@ -2,6 +2,7 @@ import React from 'react'
 import SearchMenu from '../components/SearchMenu'
 import Description from '../components/Description'
 import { WordOption } from '../WordOption'
+import preval from 'preval.macro'
 
 // Functions to change the page and select a new word
 interface Props {
@@ -12,7 +13,7 @@ interface Props {
 const MainMenu = ({setActivePage, setCurrentWordOption}: Props) => {
 
     return (
-        <div className="flex flex-col items-center">
+        <div className="flex flex-col relative items-center">
             <div className="text-4xl font-bold my-5 select-none text-shadow text-shadow-gray-500">
                 <img src="logo.png" className="inline h-20 pointer-events-none"/>
                  EtymoMap
@@ -40,7 +41,6 @@ const MainMenu = ({setActivePage, setCurrentWordOption}: Props) => {
                                 linguistic data surrounding its etymology \
                                 and other attributes."}
             />
-
         </div>
     );
 }
