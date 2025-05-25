@@ -44,7 +44,7 @@ export class Dictionary {
      * @returns {object}
      */
     private async getJSON(word: string): Promise<any> {
-        return await fetch('http://localhost:5000/api/mw/search', {
+        return await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/mw/search`, {
             method: "POST",
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify({"word": word})

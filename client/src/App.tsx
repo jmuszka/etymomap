@@ -29,7 +29,7 @@ const App: React.FC = () => {
     .then(res => res.json())
     .then(setLanguages)
 
-    fetch("http://localhost:5000")
+    fetch(process.env.REACT_APP_BACKEND_URL)
   }, [])
 
   // Store all the available pages to switch from

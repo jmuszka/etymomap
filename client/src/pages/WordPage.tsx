@@ -122,7 +122,7 @@ const WordPage = ({ setActivePage, currentWordOption }: Props) => {
         // Get LLM to process languages into neat, comma-separated list
         // let gptList = await client.processEtymologyIntoList(etymology);
 
-        await fetch('http://localhost:5000/api/openai/etymology', {
+        await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/openai/etymology`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -158,7 +158,7 @@ const WordPage = ({ setActivePage, currentWordOption }: Props) => {
 
         // If there is weird punctuation in the definition, semantically clean it
         if (definition!.match(/[\/#!$%\^&\*;:{}=\-_`~—]/)) {
-            await fetch("http://localhost:5000/api/openai/definition", {
+            await fetch(`${process.env.REACT_BACKEND_URL}/api/openai/definition`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ "definition": definition })

@@ -7,7 +7,7 @@ const {processEtymologyIntoList, simplifyDefinition} = require("./llm.js")
 
 const app = express()
 app.use(cors())
-const port = 5000
+const port = process.env.PORT;
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }))
