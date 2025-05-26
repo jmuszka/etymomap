@@ -184,6 +184,7 @@ const WordPage = ({ setActivePage, currentWordOption }: Props) => {
                         })
                         .then(res => res.json())
                         .then(data => data.countries.split(","))
+                        /* eslint-disable no-loop-func */
                         .then((countries) => {
                             countriesOfOrigin = countriesOfOrigin.concat(countries)
                         })
