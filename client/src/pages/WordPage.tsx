@@ -15,8 +15,8 @@ interface Props {
 const WordPage = ({ setActivePage, currentWordOption }: Props) => {
 
     // Store the word and its definition as strings for quick reference
+    // eslint-disable-next-line
     const [word, _]: [string, React.Dispatch<React.SetStateAction<string>>] = useState(currentWordOption.word) // Store word for quick access
-    _(currentWordOption.word); // Cloudflare
     const [definition, setDefinition]: [string, React.Dispatch<React.SetStateAction<string>>] = useState(currentWordOption.definition);
     const [etymology, setEtymology]: [string, React.Dispatch<React.SetStateAction<string>>] = useState(currentWordOption.ref[currentWordOption.wordIndex].getEtymology());
 
