@@ -133,9 +133,10 @@ const WordPage = ({ setActivePage, currentWordOption }: Props) => {
         ]
     }
 
+    /* eslint-disable react-hooks/exhaustive-deps */
     useEffect(() => {
         runGptModel()
-    }); // Cloudflare (removed dependency array)
+    }, []);
 
     const convertLang = (language) => {
         return countries[language];
