@@ -2,7 +2,6 @@ import React from 'react'
 import SearchMenu from '../components/SearchMenu'
 import Description from '../components/Description'
 import { WordOption } from '../WordOption'
-import preval from 'preval.macro'
 
 // Functions to change the page and select a new word
 interface Props {
@@ -17,7 +16,7 @@ const MainMenu = ({setActivePage, setCurrentWordOption}: Props) => {
 
             {/* Title */}
             <div className="text-5xl font-bold select-none text-shadow text-shadow-gray-500 my-2">
-                <img src="logo.png" className="inline h-20 pointer-events-none"/>
+                <img src="logo.png" className="inline h-20 pointer-events-none" alt="EtymoMap logo"/>
                  EtymoMap
             </div>
 

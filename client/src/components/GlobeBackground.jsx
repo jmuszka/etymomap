@@ -10,7 +10,7 @@ const HIGHLIGHT_COLOR = "#421854"; // Highlighted country color
 function GlobeBackground() {
     const {globeEl} = useContext(ctx); // Globe.gl object reference
     const {countries} = useContext(ctx); // Country data
-    const  {toggleFocus} = useContext(ctx);
+    // const  {toggleFocus} = useContext(ctx);
     const {getCurrentCountryName, getFocusValue} = useContext(ctx); // Currently-selected country
 
 

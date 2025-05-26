@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext, useLayoutEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import { ctx } from '../components/GlobeBackgroundProvider.jsx'
 import { WordOption } from '../WordOption.tsx'
 // import {EtymologyBot} from '../OpenAI/EtymologyBot.ts';
@@ -16,6 +16,7 @@ const WordPage = ({ setActivePage, currentWordOption }: Props) => {
 
     // Store the word and its definition as strings for quick reference
     const [word, _]: [string, React.Dispatch<React.SetStateAction<string>>] = useState(currentWordOption.word) // Store word for quick access
+    _(currentWordOption.word); // Cloudflare
     const [definition, setDefinition]: [string, React.Dispatch<React.SetStateAction<string>>] = useState(currentWordOption.definition);
     const [etymology, setEtymology]: [string, React.Dispatch<React.SetStateAction<string>>] = useState(currentWordOption.ref[currentWordOption.wordIndex].getEtymology());
 
@@ -134,7 +135,7 @@ const WordPage = ({ setActivePage, currentWordOption }: Props) => {
 
     useEffect(() => {
         runGptModel()
-    }, []);
+    }); // Cloudflare (removed dependency array)
 
     const convertLang = (language) => {
         return countries[language];
@@ -199,7 +200,7 @@ const WordPage = ({ setActivePage, currentWordOption }: Props) => {
         else setDefinition(definition.substring(0, 1).toUpperCase() + definition.substring(1, definition.length))
 
         // If there is weird punctuation in the definition, semantically clean it
-        if (definition!.match(/[\/#!$%\^&\*;:{}=\-_`~—]/)) {
+        if (definition!.match(/[/#!$%^&*;:{}=\-_`~—]/)) {
             await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/openai/definition`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },

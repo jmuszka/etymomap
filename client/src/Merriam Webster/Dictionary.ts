@@ -10,7 +10,7 @@ export class Dictionary {
      * Store API key
      * @param key Merriam-Webster API key
      */
-    public constructor() {}
+    // public constructor() {}
 
     /**
      * Search the Merriam-Webster database for a word

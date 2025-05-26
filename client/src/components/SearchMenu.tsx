@@ -45,8 +45,12 @@ function SearchMenu({ setActivePage, setCurrentWordOption }: Props) {
                         ref: m, // reference to the list of word objects
                     });
 
+                    return def; // Cloudflare
+
                 })
             }
+
+            return item; // Cloudflare
         })
 
         // Convert data into format for search bar
@@ -54,6 +58,7 @@ function SearchMenu({ setActivePage, setCurrentWordOption }: Props) {
         results.map((result, i) => {
             result.value = result.word + i; // key to search for (append index to make unique)
             result.label = result.definition.length <= MAX_LENGTH ? result.definition : `${result.definition.substring(0, MAX_LENGTH)}...`; //TODO: truncate
+            return result; // Cloudflare
         });
 
         // Remove words that dont have this.et defined (TODO: use an API call to compensate instead)

@@ -56,12 +56,12 @@ export const GlobeBackgroundProvider = ({children}) => {
                 location.latitude += coords.latitude / countryName.length;
                 location.longitude += coords.longitude / countryName.length;
             } else { console.error(country) }
-                    
+            return country; // Cloudflare
         })
 
         setCurrentCountryName(countryName)
 
-        if (location.latitude == 0 && location.longitude == 0 && !focus) return // do nothing if country does not exist
+        if (location.latitude === 0 && location.longitude === 0 && !focus) return // do nothing if country does not exist
 
         // If not currently focused, focus
         if (!focus) {
