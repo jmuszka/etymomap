@@ -17,7 +17,8 @@ const MainMenu = ({setActivePage, setCurrentWordOption}: Props) => {
             {/* Title */}
             <div className="text-5xl font-bold select-none text-shadow text-shadow-gray-500 my-2">
                 <img src="logo.png" className="inline h-20 pointer-events-none" alt="EtymoMap logo"/>
-                 EtymoMap
+                 <span>EtymoMap</span>
+                 <span className="text-xs text-blue-800">BETA</span>
             </div>
 
             <SearchMenu 
