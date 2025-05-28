@@ -5,6 +5,7 @@ import GlobeBackground from './components/GlobeBackground'
 import {GlobeBackgroundProvider} from './components/GlobeBackgroundProvider'
 import MainMenu from './pages/MainMenu'
 import WordPage from './pages/WordPage'
+import Changelog from './pages/Changelog'
 import BuildVersion from './components/BuildVersion'
 import {Word} from './Merriam Webster/Word'
 import {WordOption} from './WordOption'
@@ -35,7 +36,8 @@ const App: React.FC = () => {
   // Store all the available pages to switch from
   const PAGES: Dictionary  = {
     "main": <MainMenu setActivePage={setActivePage} setCurrentWordOption={setCurrentWordOption}/>,
-    "word": <WordPage setActivePage={setActivePage} currentWordOption={currentWordOption} countries={languages}/>
+    "word": <WordPage setActivePage={setActivePage} currentWordOption={currentWordOption} countries={languages}/>,
+    "changelog": <Changelog setActivePage={setActivePage}/>
   };
 
   // On app load
@@ -67,7 +69,7 @@ const App: React.FC = () => {
               </div>
 
           {/* Version/build number */}
-          <BuildVersion/>
+          <BuildVersion setActivePage={setActivePage}/>
         </div>
       </div>
       </GlobeBackgroundProvider>
