@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react'
+import React, { useContext } from 'react'
 import { ctx } from '../components/GlobeBackgroundProvider.jsx'
 import BackButton from '../components/BackButton.tsx'
 import Description from '../components/Description.tsx'
