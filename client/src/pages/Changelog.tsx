@@ -19,7 +19,7 @@ const WordPage = ({ setActivePage }) => {
 
             <hr className="h-px my-8 bg-gray-600 border-0"/>
 
-            <Description text={"Version 0.5.1 - Added changelog page. (2025/05/27)"}/>
+            <Description text={"Version 0.5 - Added changelog page. (2025/05/27)"}/>
 
             <Description text={"Version 0.4.1 - Beta release. (2025/05/25)"}/>
         </div>
