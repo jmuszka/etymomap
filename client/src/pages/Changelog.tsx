@@ -12,16 +12,37 @@ const WordPage = ({ setActivePage }) => {
 
     return (
         <div className="flex flex-col text-center">
-            <BackButton setActivePage={setActivePage} toggleFocus={toggleFocus}/>
+            <BackButton setActivePage={setActivePage} toggleFocus={toggleFocus} />
 
-            <h1 className="font-bold text-2xl">Changelog</h1><br/>
-            <Description text={"(Last updated: May 27, 2025)"}/>
+            <h1 className="font-bold text-2xl">Release notes</h1><br />
 
-            <hr className="h-px my-8 bg-gray-600 border-0"/>
+            <div className="text-left px-10">
+                <div className="my-5 text-shadow text-shadow-gray-500 text-sm 2xl:text-lg">
+                    <b>Version 0.6</b>
+                    <ul>
+                        <li className="ml-2"> - Added International Phonetic Alphabet spelling for supported words.</li>
+                        <li className="ml-2"> - Minor UI tweaks for smaller screens.</li>
+                        <li className="ml-2"> - Improved changelog page.</li>
+                    </ul>
+                     <span className="text-xs">(2025/05/29)</span>
+                </div>
 
-            <Description text={"Version 0.5 - Added changelog page. (2025/05/27)"}/>
+                <div className="my-5 text-shadow text-shadow-gray-500 text-sm 2xl:text-lg">
+                    <b>Version 0.5</b>
+                    <ul>
+                        <li className="ml-2"> - Added changelog page.</li>
+                    </ul>
+                     <span className="text-xs">(2025/05/27)</span>
+                </div>
 
-            <Description text={"Version 0.4.1 - Beta release. (2025/05/25)"}/>
+                <div className="my-5 text-shadow text-shadow-gray-500 text-sm 2xl:text-lg">
+                    <b>Version 0.4.1</b>
+                    <ul>
+                        <li className="ml-2"> - Beta release.</li>
+                    </ul>
+                     <span className="text-xs">(2025/05/25)</span>
+                </div>
+            </div>
         </div>
     );
 }

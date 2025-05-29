@@ -7,7 +7,7 @@ interface Props {
 const Description: React.FC<Props> = ({text}) => {
 
     return (
-        <div className="my-5 text-shadow text-shadow-gray-500 text-md 2xl:text-lg">
+        <div className="my-5 text-shadow text-shadow-gray-500 text-sm 2xl:text-lg">
             {text}
         </div>
     );

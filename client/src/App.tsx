@@ -64,7 +64,7 @@ const App: React.FC = () => {
             flex-1
             relative
             ">
-              <div className="flex-1 w-full h-full p-[4%] ">
+              <div className="flex-1 w-full h-full md:p-[7%] 2xl:p-[4%] ">
               {PAGES[activePage]}
               </div>
 

@@ -15,8 +15,8 @@ const MainMenu = ({setActivePage, setCurrentWordOption}: Props) => {
         <div className="flex flex-col items-center justify-center h-full text-center">
 
             {/* Title */}
-            <div className="text-5xl font-bold select-none text-shadow text-shadow-gray-500 my-2">
-                <img src="logo.png" className="inline h-20 pointer-events-none" alt="EtymoMap logo"/>
+            <div className="text-4xl 2xl:text-5xl font-bold select-none text-shadow text-shadow-gray-500 my-2">
+                <img src="logo.png" className="inline h-16 2xl:h-20 pointer-events-none" alt="EtymoMap logo"/>
                  <span>EtymoMap</span>
                  <span className="text-xs text-blue-800">BETA</span>
             </div>
