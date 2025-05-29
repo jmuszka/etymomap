@@ -19,6 +19,7 @@ const WordPage = ({ setActivePage, currentWordOption }: Props) => {
     const [word, _]: [string, React.Dispatch<React.SetStateAction<string>>] = useState(currentWordOption.word) // Store word for quick access
     const [definition, setDefinition]: [string, React.Dispatch<React.SetStateAction<string>>] = useState(currentWordOption.definition);
     const [etymology, setEtymology]: [string, React.Dispatch<React.SetStateAction<string>>] = useState(currentWordOption.ref[currentWordOption.wordIndex].getEtymology());
+    const [ipa, setIpa]: [string, React.Dispatch<React.SetStateAction<string>>] = useState("");
 
     const { toggleFocus } = useContext(ctx); // Toggle hovering
 
@@ -135,8 +136,24 @@ const WordPage = ({ setActivePage, currentWordOption }: Props) => {
 
     /* eslint-disable react-hooks/exhaustive-deps */
     useEffect(() => {
+        loadIPASpelling();
         runGptModel()
     }, []);
+
+    const loadIPASpelling = async () => {
+        const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/ipa`, {
+            "method": "POST",
+            "headers": {
+                "Content-Type": "application/json"
+            },
+            "body": JSON.stringify({
+                "word": word
+            })
+        })
+        .then(res => res.json())
+        
+        setIpa(response.ipa)
+    }
 
     const convertLang = (language) => {
         return countries[language];
@@ -218,7 +235,9 @@ const WordPage = ({ setActivePage, currentWordOption }: Props) => {
         <div className="flex flex-col text-center">
             <BackButton setActivePage={setActivePage} toggleFocus={toggleFocus}/>
 
-            <h1 className="font-bold text-2xl">{word}</h1><br/>
+            <span className="font-bold text-2xl">{word}</span>
+            <span className="text-sm">{ipa!=="" ? ipa : ""}</span>
+
             <Description text={`Definition: ${definition}`}/>
             <Description text={`First use: ${currentWordOption.ref[currentWordOption.wordIndex].getFirstUse().replace(/{(.*?)}/, "").replace(/circa/, "")}`}/>
             <Description text={`${currentWordOption.ref[currentWordOption.wordIndex].getPartOfSpeech()}`}/>
