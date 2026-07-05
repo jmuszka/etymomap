@@ -1,0 +1,4 @@
+[submodule "larynx"]
+	path = larynx
+  url = https://github.com/jmuszka/larynx.git
+  branch = master
