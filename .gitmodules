@@ -2,3 +2,7 @@
 	path = larynx
   url = https://github.com/jmuszka/larynx.git
   branch = master
+[submodule "palate"]
+	path = palate
+	url = https://github.com/jmuszka/palate.git
+	branch = master
