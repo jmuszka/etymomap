@@ -30,6 +30,8 @@ Building EtymoMap served as an excellent vessel to deepen my understanding of th
 
 ![](assets/potato.png)
 
+[![Banana](https://img.youtube.com/vi/Wp_uyo3LUdw/0.jpg)](https://www.youtube.com/watch?v=Wp_uyo3LUdw)
+
 `Whether through trade, war, exploration, colonization, or prehistoric inheritance, each word has a grand story detailing how it entered the modern lexicon.`
 
 ## Assumptions & Methodology
@@ -41,6 +43,8 @@ Building EtymoMap served as an excellent vessel to deepen my understanding of th
 **Visualization.** The etymology tree shows direct inheritance, borrowings, and structural relations (affixes and compounds), with lateral links such as doublets drawn distinctly. The family chart is a phylogenetic pie chart of the word's hierarchical language family composition. Hovering over a family on the chart highlights where that subfamily appears on the map.
 
 **Map rendering.** Language regions, from academic sources, represent approximate native and historical areas rather than precise historical borders; regions for reconstructed or ancient languages are necessarily inferred. Polygon boundaries are smoothed for legibility and visual appeal, and the fitted view may crop outliers so the densest majority of the word's influence stays in frame.
+
+[![Interactive Blogs](https://img.youtube.com/vi/s_O1GsuJCfI/0.jpg)](https://www.youtube.com/watch?v=s_O1GsuJCfI)
 
 ## Repository Structure
 
