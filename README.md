@@ -2,6 +2,9 @@
 
 A historical geolinguistic atlas for visualizing the evolution of natural language over time and space.
 
+![](assets/apple.png)
+`Trace the ancestry of everyday words back thousands of years!`
+
 [![Palate](https://img.shields.io/badge/palate-v2026.09.14-blue)](https://github.com/jmuszka/palate)
 [![Larynx](https://img.shields.io/badge/larynx-v2026.09.14-green)](https://github.com/jmuszka/larynx)
 [![React](https://img.shields.io/badge/react-19-61dafb)](https://react.dev)
@@ -22,6 +25,12 @@ Language is not a mere means of communication: it encapsulates entire cultures, 
 I created this digital atlas to express my intersecting interests in language, history, formal structures, and digital cartography. One of the reasons I love making educational tools is not purely for the pedagogical purpose of imparting knowledge onto others, but also as a medium to share my passions and to gain a more rigorous understanding of the topics I find intrinsically fascinating.
 
 Building EtymoMap served as an excellent vessel to deepen my understanding of theoretical linguistics and its subfields while pushing me to solve complex engineering challenges in spatial graph indexing and real-time visualization. I would encourage anyone fascinated by a subject as multifaceted as linguistics to build a multi-domain tool such as this one - it is a powerful way to indulge your inner obsessions while making knowledge more accessible to those around you.
+
+![](assets/ransack.png)
+
+![](assets/potato.png)
+
+`Whether through trade, war, exploration, colonization, or prehistoric inheritance, each word has a grand story detailing how it entered the modern lexicon.`
 
 ## Assumptions & Methodology
 
